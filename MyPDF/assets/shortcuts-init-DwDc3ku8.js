@@ -1,0 +1,1 @@
+import{i as e}from"./main-BG6h_11Z.js";function t(){e.init(),console.log(`Global shortcuts initialized`)}export{t};

@@ -1,0 +1,1 @@
+export{t as default}from"./purify.es-BXoPR7WT.js";
