@@ -94,3 +94,35 @@ body #workflow-app .wf-desc { color: var(--asq-muted); }
 body #workflow-app .wf-divider { background-color: var(--asq-line); }
 body #workflow-app .wf-socket { border-color: var(--asq-paper); }
 body #workflow-app .connection .main-path { stroke: var(--asq-blue); }
+
+/* EmbedPDF renders in a shadow root and exposes theme tokens on its host. */
+embedpdf-container[data-color-scheme="light"] {
+  --ep-background-app: var(--asq-page); --ep-background-surface: var(--asq-paper);
+  --ep-background-surface-alt: var(--asq-pale); --ep-background-elevated: var(--asq-paper);
+  --ep-background-input: var(--asq-paper); --ep-foreground-primary: var(--asq-navy);
+  --ep-foreground-secondary: var(--asq-ink); --ep-foreground-muted: var(--asq-muted);
+  --ep-accent-primary: var(--asq-blue); --ep-accent-primary-hover: var(--asq-navy);
+  --ep-accent-primary-active: var(--asq-navy); --ep-accent-primary-light: var(--asq-pale);
+  --ep-foreground-on-accent: white; --ep-accent-primary-foreground: white;
+  --ep-interactive-focus: var(--asq-focus); --ep-interactive-selected: #d3e5f3;
+  --ep-interactive-hover: var(--asq-pale); --ep-border-default: #bacbd8; --ep-border-subtle: var(--asq-line);
+}
+embedpdf-container[data-color-scheme="dark"] {
+  --ep-background-app: #101e2c; --ep-background-surface: #192f44;
+  --ep-background-surface-alt: #233c52; --ep-accent-primary: #8dc6ed;
+  --ep-accent-primary-foreground: #112b40; --ep-interactive-hover: #304b61;
+}
+html:has(link[data-mypdf-viewer]) {
+  --main-color: var(--asq-ink); --body-bg-color: var(--asq-page);
+  --toolbar-bg-color: var(--asq-paper); --toolbar-border-color: var(--asq-line);
+  --toolbar-icon-bg-color: var(--asq-navy); --toolbar-icon-hover-bg-color: var(--asq-blue);
+  --sidebar-toolbar-bg-color: var(--asq-pale); --sidebar-narrow-bg-color: var(--asq-pale);
+  --button-hover-color: var(--asq-pale); --toggled-btn-bg-color: var(--asq-blue); --toggled-btn-color: white;
+  --doorhanger-bg-color: var(--asq-paper); --doorhanger-border-color: var(--asq-line);
+  --field-color: var(--asq-ink); --field-bg-color: var(--asq-paper); --field-border-color: var(--asq-control);
+}
+html:has(link[data-mypdf-viewer]) body > .toolbar { background-color: var(--asq-pale); box-shadow: none; }
+html:has(link[data-mypdf-viewer]) body > .toolbar :is(button, select, input, option) { background-color: var(--asq-paper); color: var(--asq-navy); border-color: var(--asq-control); border-radius: 0; }
+html:has(link[data-mypdf-viewer]) body > .toolbar button:enabled:hover { background-color: #d3e5f3; }
+html:has(link[data-mypdf-viewer]) body > .toolbar .page-info { color: var(--asq-ink); }
+html:has(link[data-mypdf-viewer]) #viewerContainer { background-color: #d8e2eb; }
