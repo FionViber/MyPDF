@@ -1,6 +1,12 @@
 name: Publish MyPDF languages
 on:
   workflow_dispatch:
+    inputs:
+      edition:
+        description: Hosting platform
+        type: choice
+        default: github
+        options: [github, cloudflare]
   push:
     branches: [main]
     paths:
@@ -9,7 +15,7 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: mypdf-pages
+  group: mypdf-pages-${{ inputs.edition || 'github' }}
   cancel-in-progress: false
 jobs:
   build:
@@ -36,15 +42,27 @@ jobs:
           cp build-config/simple-index.html "$RUNNER_TEMP/bento/"
           cp build-config/generate-i18n-pages.mjs "$RUNNER_TEMP/bento/scripts/"
       - name: Install pinned dependencies and build the static site
+        env:
+          EDITION: ${{ inputs.edition || 'github' }}
         run: |
           npm ci --prefix "$RUNNER_TEMP/bento" --no-audit --no-fund
-          node build-config/complete-build.mjs "$RUNNER_TEMP/bento" github "$RUNNER_TEMP/site"
+          node build-config/complete-build.mjs "$RUNNER_TEMP/bento" "$EDITION" "$RUNNER_TEMP/site"
           test -s "$RUNNER_TEMP/site/zh/merge-pdf.html"
           test -s "$RUNNER_TEMP/site/zh-TW/merge-pdf.html"
+      - name: Package the Cloudflare edition
+        if: inputs.edition == 'cloudflare'
+        uses: actions/upload-artifact@v4
+        with:
+          name: mypdf-cloudflare
+          path: ${{ runner.temp }}/site
+          include-hidden-files: true
+          retention-days: 1
       - uses: actions/upload-pages-artifact@v3
+        if: inputs.edition != 'cloudflare'
         with:
           path: ${{ runner.temp }}/site
   deploy:
+    if: inputs.edition != 'cloudflare'
     needs: build
     runs-on: ubuntu-latest
     permissions:
