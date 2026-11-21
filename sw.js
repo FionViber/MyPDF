@@ -8,6 +8,14 @@
 const CACHE_VERSION = 'bentopdf-v13';
 const CACHE_NAME = `${CACHE_VERSION}-static`;
 
+function withIsolation(response, request) {
+  if (request.mode !== 'navigate') return response;
+  const headers = new Headers(response.headers);
+  headers.set('Cross-Origin-Opener-Policy', 'same-origin');
+  headers.set('Cross-Origin-Embedder-Policy', 'require-corp');
+  return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
+}
+
 const trustedCdnOrigins = new Set(['https://cdn.jsdelivr.net']);
 
 const getBasePath = () => {
@@ -131,7 +139,7 @@ async function cacheFirstStrategyWithDedup(request, isCDN) {
     const cachedResponse = await findCachedFile(request.url);
     if (cachedResponse) {
       // console.log('⚡ [Cache HIT] Instant load:', fileName);
-      return cachedResponse;
+      return withIsolation(cachedResponse, request);
     }
 
     // console.log(`📥 [Cache MISS] Downloading from ${isCDN ? 'CDN' : 'local'}:`, fileName);
@@ -159,7 +167,7 @@ async function cacheFirstStrategyWithDedup(request, isCDN) {
       }
     }
 
-    return networkResponse;
+    return withIsolation(networkResponse, request);
   } catch (error) {
     if (isCDN) {
       console.warn(`⚠️ [CDN Failed] Trying local fallback for: ${fileName}`);
