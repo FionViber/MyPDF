@@ -15664,13 +15664,13 @@ const fonts = [
 ];
 function buildCdnUrls(version = "latest") {
   return {
-    jp: \`https://cdn.jsdelivr.net/npm/@embedpdf/fonts-jp@\${version}/fonts\`,
-    kr: \`https://cdn.jsdelivr.net/npm/@embedpdf/fonts-kr@\${version}/fonts\`,
-    sc: \`https://cdn.jsdelivr.net/npm/@embedpdf/fonts-sc@\${version}/fonts\`,
-    tc: \`https://cdn.jsdelivr.net/npm/@embedpdf/fonts-tc@\${version}/fonts\`,
-    arabic: \`https://cdn.jsdelivr.net/npm/@embedpdf/fonts-arabic@\${version}/fonts\`,
-    hebrew: \`https://cdn.jsdelivr.net/npm/@embedpdf/fonts-hebrew@\${version}/fonts\`,
-    latin: \`https://cdn.jsdelivr.net/npm/@embedpdf/fonts-latin@\${version}/fonts\`
+    jp: \`https://fionviber.github.io/MyPDF/editor-resources/fonts-jp\`,
+    kr: \`https://fionviber.github.io/MyPDF/editor-resources/fonts-kr\`,
+    sc: \`https://fionviber.github.io/MyPDF/editor-resources/fonts-sc\`,
+    tc: \`https://fionviber.github.io/MyPDF/editor-resources/fonts-tc\`,
+    arabic: \`https://fionviber.github.io/MyPDF/editor-resources/fonts-arabic\`,
+    hebrew: \`https://fionviber.github.io/MyPDF/editor-resources/fonts-hebrew\`,
+    latin: \`https://fionviber.github.io/MyPDF/editor-resources/fonts-latin\`
   };
 }
 function toFontVariants(fonts2, baseUrl) {

@@ -1,9 +1,13 @@
 # MyPDF
 
-A self-hosted static PDF toolkit derived from BentoPDF.
+A browser-based PDF toolkit built from BentoPDF 2.8.12. Choose a tool, open a local file and download the result.
 
-The application runs in the browser. The source and build configuration are available in this repository under the GNU Affero General Public License v3.0. Upstream attribution and third-party notices are retained in the accompanying files.
+[GitHub Pages](https://fionviber.github.io/MyPDF/) · [Cloudflare Pages](https://mypdf-zdf.pages.dev/)
 
-The MyPDF static site is published at https://fionviber.github.io/MyPDF/
+The public application serves its PDF engines, Office converter, OCR worker and language data, fallback fonts and editor resources from its own origin. These assets download when required. A trusted timestamp or a deliberately configured remote provider may require a network service.
 
-Some advanced PDF operations may load WebAssembly modules or fonts from their configured upstream URLs. The build uses locally available bundles where provided by BentoPDF. See the in-app WASM settings page for the remaining configurable runtime sources.
+## Source and licences
+
+The upstream source is provided by the two BentoPDF-source.zip parts. The source patch, platform-specific build steps and release finalisers are in [build-config](build-config/BUILD-REPRODUCTION.md). This distribution is licensed under AGPL-3.0. Third-party engine and font licences are included with their respective assets.
+
+[Upstream project](https://github.com/alam00000/bentopdf) · [AGPL licence](BENTOPDF-LICENSE)

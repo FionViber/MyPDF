@@ -1,0 +1,1 @@
+import{n as e,t}from"./style-Bxj3X6Vm.js";document.addEventListener(`DOMContentLoaded`,()=>{t({icons:e})});

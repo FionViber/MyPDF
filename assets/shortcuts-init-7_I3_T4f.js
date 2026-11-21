@@ -1,1 +1,0 @@
-import{i as e}from"./main-C2LJPte8.js";function t(){e.init(),console.log(`Global shortcuts initialized`)}export{t};

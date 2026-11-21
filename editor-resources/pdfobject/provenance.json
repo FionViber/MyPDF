@@ -1,0 +1,7 @@
+{
+  "package": "pdfobject",
+  "version": "2.1.1",
+  "source": "https://registry.npmjs.org/pdfobject/-/pdfobject-2.1.1.tgz",
+  "integrity": "sha512-QFktTHyjs4q/WhGFfV2RdAbscPdNkyQb/JfFz18cwILvs9ocDiYVFAEh/jgkKGv6my+r4nlbLjwj7BHFKAupHQ==",
+  "license": "MIT"
+}

@@ -1,1 +1,0 @@
-import{n as e,t}from"./style-wlGCmA4e.js";document.addEventListener(`DOMContentLoaded`,()=>{t({icons:e})});

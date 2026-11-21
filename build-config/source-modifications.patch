@@ -1,0 +1,237 @@
+diff --git a/public/sw.js b/public/sw.js
+index 7ca3ec9..100aa8c 100644
+--- a/public/sw.js
++++ b/public/sw.js
+@@ -5,9 +5,20 @@
+  * Version: 1.1.0
+  */
+ 
+-const CACHE_VERSION = 'bentopdf-v13';
++const CACHE_VERSION = 'mypdf-isolated-v4';
+ const CACHE_NAME = `${CACHE_VERSION}-static`;
+ 
++function withIsolation(response, request) {
++  if (!response || response.status === 0 || !response.ok) return response;
++  const headers = new Headers(response.headers);
++  headers.set('Cross-Origin-Embedder-Policy', 'require-corp');
++  headers.set('Cross-Origin-Resource-Policy', 'same-origin');
++  if (request.mode === 'navigate') headers.set('Cross-Origin-Opener-Policy', 'same-origin');
++  return new Response(response.body, {
++    status: response.status, statusText: response.statusText, headers,
++  });
++}
++
+ const trustedCdnOrigins = new Set(['https://cdn.jsdelivr.net']);
+ 
+ const getBasePath = () => {
+@@ -58,7 +69,7 @@ self.addEventListener('activate', (event) => {
+       .then((cacheNames) => {
+         return Promise.all(
+           cacheNames.map((cacheName) => {
+-            if (cacheName.startsWith('bentopdf-') && cacheName !== CACHE_NAME) {
++            if ((cacheName.startsWith('mypdf-isolated-') || cacheName === 'bentopdf-v13-static') && cacheName !== CACHE_NAME) {
+               // console.log('[ServiceWorker] Deleting old cache:', cacheName);
+               return caches.delete(cacheName);
+             }
+@@ -79,6 +90,19 @@ self.addEventListener('fetch', (event) => {
+   const isCDN = trustedCdnOrigins.has(url.origin);
+   const isLocal = url.origin === location.origin;
+ 
++  if (event.request.method !== 'GET') return;
++  if (isLocal && event.request.mode === 'navigate') {
++    event.respondWith(networkFirstStrategy(event.request).then(
++      response => withIsolation(response, event.request)
++    ));
++    return;
++  }
++  if (isLocal && ['worker', 'sharedworker'].includes(event.request.destination)) {
++    event.respondWith(cacheFirstStrategyWithDedup(event.request, false).then(
++      response => withIsolation(response, event.request)
++    ));
++    return;
++  }
+   if (!isLocal && !isCDN) {
+     return;
+   }
+@@ -129,7 +153,7 @@ async function cacheFirstStrategyWithDedup(request, isCDN) {
+     const cachedResponse = await findCachedFile(request.url);
+     if (cachedResponse) {
+       // console.log('⚡ [Cache HIT] Instant load:', fileName);
+-      return cachedResponse;
++      return withIsolation(cachedResponse, request);
+     }
+ 
+     // console.log(`📥 [Cache MISS] Downloading from ${isCDN ? 'CDN' : 'local'}:`, fileName);
+@@ -157,7 +181,7 @@ async function cacheFirstStrategyWithDedup(request, isCDN) {
+       }
+     }
+ 
+-    return networkResponse;
++    return withIsolation(networkResponse, request);
+   } catch (error) {
+     if (isCDN) {
+       console.warn(`⚠️ [CDN Failed] Trying local fallback for: ${fileName}`);
+diff --git a/simple-index.html b/simple-index.html
+index ae81b2f..20f588f 100644
+--- a/simple-index.html
++++ b/simple-index.html
+@@ -5,8 +5,8 @@
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+     <!-- Primary Meta Tags -->
+-    <title>PDF Tools</title>
+-    <meta name="title" content="PDF Tools" />
++    <title>MyPDF</title>
++    <meta name="title" content="MyPDF" />
+     <meta
+       name="description"
+       content="Free online PDF tools - Merge, split, compress, convert PDFs. 100% browser-based, no signup required, unlimited files."
+@@ -19,7 +19,7 @@
+       name="apple-mobile-web-app-status-bar-style"
+       content="black-translucent"
+     />
+-    <meta name="apple-mobile-web-app-title" content="PDF Tools" />
++    <meta name="apple-mobile-web-app-title" content="MyPDF" />
+ 
+     <!-- Favicons -->
+     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+@@ -74,7 +74,7 @@
+       <!-- Simple Mode Header -->
+       <div id="tools-header" class="text-center mb-12 pt-8">
+         <h1 class="text-3xl md:text-4xl font-bold text-white mb-3">
+-          <span data-i18n="simpleMode.title">PDF Tools</span>
++          <span>MyPDF</span>
+         </h1>
+         <p class="text-gray-400" data-i18n="simpleMode.subtitle">
+           Select a tool to get started
+@@ -256,5 +256,5 @@
+     <script type="module" src="src/js/utils/simple-mode-footer.ts"></script>
+     <script type="module" src="src/js/main.ts"></script>
+     <script type="module" src="src/js/sw-register.ts"></script>
+-  </body>
++  <p class="text-center text-sm my-4"><a href="https://github.com/FionViber/MyPDF">MyPDF source code</a> · <a href="https://github.com/alam00000/bentopdf">BentoPDF</a> · AGPL-3.0</p></body>
+ </html>
+diff --git a/src/js/main.ts b/src/js/main.ts
+index 7ca7c0b..439e351 100644
+--- a/src/js/main.ts
++++ b/src/js/main.ts
+@@ -141,7 +141,7 @@ const init = async () => {
+       const brandName = __BRAND_NAME__ || 'BentoPDF';
+       document.title = trText('{{brandName}} - {{title}}', {
+         brandName,
+-        title: t('simpleMode.title'),
++        title: (import.meta.env.VITE_BRAND_NAME || t('simpleMode.title')),
+       });
+ 
+       const toolsHeader = document.getElementById('tools-header');
+@@ -149,7 +149,7 @@ const init = async () => {
+         const title = toolsHeader.querySelector('h2');
+         const subtitle = toolsHeader.querySelector('p');
+         if (title) {
+-          title.textContent = t('simpleMode.title');
++          title.textContent = (import.meta.env.VITE_BRAND_NAME || t('simpleMode.title'));
+           title.className = 'text-4xl md:text-5xl font-bold text-white mb-3';
+         }
+         if (subtitle) {
+diff --git a/src/js/sw-register.ts b/src/js/sw-register.ts
+index d2feefa..a9b60ea 100644
+--- a/src/js/sw-register.ts
++++ b/src/js/sw-register.ts
+@@ -28,7 +28,7 @@ function collectTrustedWasmHosts(): string[] {
+   for (const raw of candidates) {
+     if (!raw) continue;
+     try {
+-      hosts.add(new URL(raw).origin);
++      hosts.add(new URL(raw, location.origin).origin);
+     } catch {
+       console.warn(
+         `[SW] Ignoring malformed VITE_* URL for SW trusted-hosts: ${raw}`
+@@ -50,7 +50,6 @@ if (isDevelopment) {
+   console.log('Service Worker will be active in production builds');
+ } else if ('serviceWorker' in navigator) {
+   window.addEventListener('load', () => {
+-    const hadController = Boolean(navigator.serviceWorker.controller);
+     const swPath = `${import.meta.env.BASE_URL}sw.js`;
+     console.log('[SW] Registering Service Worker at:', swPath);
+     navigator.serviceWorker
+@@ -72,33 +71,7 @@ if (isDevelopment) {
+           24 * 60 * 60 * 1000
+         );
+ 
+-        registration.addEventListener('updatefound', () => {
+-          const newWorker = registration.installing;
+-          if (newWorker) {
+-            newWorker.addEventListener('statechange', () => {
+-              if (newWorker.state === 'activated') {
+-                sendTrustedHostsToSw(newWorker);
+-              }
+-              if (
+-                newWorker.state === 'installed' &&
+-                navigator.serviceWorker.controller
+-              ) {
+-                console.log('[SW] New version available! Reload to update.');
+ 
+-                if (
+-                  confirm(
+-                    trText(
+-                      'A new version of BentoPDF is available. Reload to update?'
+-                    )
+-                  )
+-                ) {
+-                  newWorker.postMessage({ type: 'SKIP_WAITING' });
+-                  window.location.reload();
+-                }
+-              }
+-            });
+-          }
+-        });
+       })
+       .catch((error) => {
+         console.error('[SW] Service Worker registration failed:', error);
+@@ -108,10 +81,6 @@ if (isDevelopment) {
+       sendTrustedHostsToSw(registration.active);
+     });
+ 
+-    navigator.serviceWorker.addEventListener('controllerchange', () => {
+-      if (!hadController) return;
+-      console.log('[SW] New service worker activated, reloading...');
+-      window.location.reload();
+-    });
++
+   });
+ }
+diff --git a/src/js/utils/libreoffice-loader.ts b/src/js/utils/libreoffice-loader.ts
+index e6bfbf4..b9fa619 100644
+--- a/src/js/utils/libreoffice-loader.ts
++++ b/src/js/utils/libreoffice-loader.ts
+@@ -30,17 +30,20 @@ async function fetchAsDecompressedUrl(
+   url: string,
+   mimeType: string
+ ): Promise<string> {
+-  const response = await fetch(url);
+-  if (!response.ok) {
+-    throw new Error(
+-      trText('Failed to fetch {{url}}: HTTP {{status}}', {
+-        url,
++  // Pages editions publish gzip archives in pieces below the host's asset limit.
++  const pieces = url.endsWith('soffice.wasm.gz') ? 3 : 2;
++  const chunks = await Promise.all(Array.from({ length: pieces }, async (_, i) => {
++    const part = url + '.part' + String(i).padStart(3, '0');
++    const response = await fetch(part);
++    if (!response.ok || response.headers.get('content-type')?.includes('text/html')) {
++      throw new Error(trText('Failed to fetch {{url}}: HTTP {{status}}', {
++        url: part,
+         status: response.status,
+-      })
+-    );
+-  }
+-
+-  let blob = await response.blob();
++      }));
++    }
++    return response.blob();
++  }));
++  let blob = new Blob(chunks);
+   const head = new Uint8Array(await blob.slice(0, 2).arrayBuffer());
+   if (head[0] === GZIP_MAGIC_FIRST && head[1] === GZIP_MAGIC_SECOND) {
+     const decompressed = blob

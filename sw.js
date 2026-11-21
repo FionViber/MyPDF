@@ -1,19 +1,22 @@
 /**
- * MyPDF Service Worker
+ * BentoPDF Service Worker
  * Caches WASM files and static assets for offline support and faster loading
  * Supports both local and CDN delivery with deduplication
  * Version: 1.1.0
  */
 
-const CACHE_VERSION = 'bentopdf-v13';
+const CACHE_VERSION = 'mypdf-isolated-v4';
 const CACHE_NAME = `${CACHE_VERSION}-static`;
 
 function withIsolation(response, request) {
-  if (request.mode !== 'navigate') return response;
+  if (!response || response.status === 0 || !response.ok) return response;
   const headers = new Headers(response.headers);
-  headers.set('Cross-Origin-Opener-Policy', 'same-origin');
   headers.set('Cross-Origin-Embedder-Policy', 'require-corp');
-  return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
+  headers.set('Cross-Origin-Resource-Policy', 'same-origin');
+  if (request.mode === 'navigate') headers.set('Cross-Origin-Opener-Policy', 'same-origin');
+  return new Response(response.body, {
+    status: response.status, statusText: response.statusText, headers,
+  });
 }
 
 const trustedCdnOrigins = new Set(['https://cdn.jsdelivr.net']);
@@ -68,7 +71,7 @@ self.addEventListener('activate', (event) => {
       .then((cacheNames) => {
         return Promise.all(
           cacheNames.map((cacheName) => {
-            if (cacheName.startsWith('bentopdf-') && cacheName !== CACHE_NAME) {
+            if ((cacheName.startsWith('mypdf-isolated-') || cacheName === 'bentopdf-v13-static') && cacheName !== CACHE_NAME) {
               // console.log('[ServiceWorker] Deleting old cache:', cacheName);
               return caches.delete(cacheName);
             }
@@ -89,6 +92,19 @@ self.addEventListener('fetch', (event) => {
   const isCDN = trustedCdnOrigins.has(url.origin);
   const isLocal = url.origin === location.origin;
 
+  if (event.request.method !== 'GET') return;
+  if (isLocal && event.request.mode === 'navigate') {
+    event.respondWith(networkFirstStrategy(event.request).then(
+      response => withIsolation(response, event.request)
+    ));
+    return;
+  }
+  if (isLocal && ['worker', 'sharedworker'].includes(event.request.destination)) {
+    event.respondWith(cacheFirstStrategyWithDedup(event.request, false).then(
+      response => withIsolation(response, event.request)
+    ));
+    return;
+  }
   if (!isLocal && !isCDN) {
     return;
   }

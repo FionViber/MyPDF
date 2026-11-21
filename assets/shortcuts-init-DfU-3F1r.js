@@ -1,1 +1,0 @@
-import{a as e}from"./main-wiGvu9K2.js";function t(){e.init(),console.log(`Global shortcuts initialized`)}export{t};

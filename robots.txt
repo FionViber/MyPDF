@@ -1,12 +1,12 @@
-# MyPDF Robots.txt
-# https://www.fionviber.github.io/MyPDF
+# BentoPDF Robots.txt
+# https://www.bentopdf.com
 
 # Allow all crawlers
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://www.fionviber.github.io/MyPDF/sitemap.xml
+Sitemap: https://www.bentopdf.com/sitemap.xml
 
 # Disallow internal/system paths
 Disallow: /api/
