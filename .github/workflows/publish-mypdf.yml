@@ -32,6 +32,7 @@ jobs:
           cp build-config/language-redirect.js "$RUNNER_TEMP/bento/src/js/"
           cp build-config/simple-mode-footer.ts "$RUNNER_TEMP/bento/src/js/utils/"
           cp build-config/navbar-simple.html "$RUNNER_TEMP/bento/src/partials/"
+          cp build-config/merge-pdf-page.ts "$RUNNER_TEMP/bento/src/js/logic/"
           cp build-config/simple-index.html "$RUNNER_TEMP/bento/"
           cp build-config/generate-i18n-pages.mjs "$RUNNER_TEMP/bento/scripts/"
       - name: Install pinned dependencies and build the static site
