@@ -8,7 +8,8 @@ const root = resolve(output);
 const home = host === 'github' ? 'https://fionviber.github.io/MyPDF/' : 'https://mypdf-zdf.pages.dev/';
 const base = new URL(home).pathname;
 const read = file => readFile(file, 'utf8');
-await copyFile(new URL('isolation-ready.js', import.meta.url), join(root,'isolation-ready.js'));
+const bootstrapName = 'office-ready-7a3cd835f5.js';
+await copyFile(new URL('isolation-ready.js', import.meta.url), join(root,bootstrapName));
 if(host === 'cloudflare') await copyFile(new URL('cloudflare-headers.txt',import.meta.url),join(root,'_headers'));
 await writeFile(join(root,'.nojekyll'),'');
 for(const [archive,count] of [['soffice.wasm.gz',3],['soffice.data.gz',2]]){
@@ -37,7 +38,7 @@ async function walk(directory){
         html=html.replaceAll('<title>PDF Tools</title>','<title>MyPDF</title>').replaceAll('content="PDF Tools"','content="MyPDF"').replace(/(<span data-i18n="simpleMode.title">)[^<]*(<\/span>)/,'$1MyPDF$2');
         if(!html.includes('https://github.com/FionViber/MyPDF'))html=html.replace('</body>',sourceLinks+'\n</body>');
       }
-      if(officePages.test(file.name) && !html.includes('isolation-ready.js')) html=html.replace('<head>', '<head><script src="'+base+'isolation-ready.js"></script>');
+      if(officePages.test(file.name) && !html.includes(bootstrapName)) html=html.replace('<head>', '<head><script src="'+base+bootstrapName+'"></script>');
       if(html!==original)await writeFile(full,html);
     }else if(full.includes('locales')&&file.name.endsWith('.json')){
       const messages=JSON.parse(await read(full));
