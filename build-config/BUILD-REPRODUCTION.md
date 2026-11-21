@@ -1,10 +1,17 @@
 # Building MyPDF
 
-The upstream revision is `f1d685bcf607c904f0c6fb385e8048974a2bc8b0` (BentoPDF v2.8.12). Check out that revision or concatenate the two source archive parts in numerical order and extract the resulting ZIP. Use a separate empty directory for each output platform.
+MyPDF uses BentoPDF 2.8.12 at revision `f1d685bcf607c904f0c6fb385e8048974a2bc8b0`. The same sources produce both static editions. GitHub serves the site under `/MyPDF/` and Cloudflare serves it at the domain root.
 
-1. Apply `git apply --binary /path/to/MyPDF/build-config/source-modifications.patch` in the upstream tree.
-2. Install the pinned upstream JavaScript dependencies (Node 24 and the upstream npm lockfile, or the supplied pnpm lock/workspace configuration). Use the original Vite configuration.
-3. From the published MyPDF repository, run `node build-config/complete-build.mjs /path/to/patched-upstream github /path/to/empty/github-output`. Repeat with `cloudflare` and a separate empty output directory.
-4. Publish the GitHub output at the root of the MyPDF Pages repository and the Cloudflare output at the project root. Retain dotfiles such as .nojekyll and the Cloudflare _headers file.
+## GitHub Actions
 
-The build script and finalisers copy the working runtime files from this repository, use host-specific absolute URLs, create 20 MiB Office engine segments and add the editor's licensed fonts. All production PDF.js, PDFium, Ghostscript, PyMuPDF, CoherentPDF, Tesseract, LibreOffice and font files are static. See editor-resources/provenance.json, offline-resources/manifest.json and the notices in the wasm and font directories. No account token is needed to build.
+Open **Actions**, select **Publish MyPDF languages** and run it on `main`. The `github` edition publishes to GitHub Pages. The `cloudflare` edition produces a `mypdf-cloudflare` artifact for the existing Cloudflare Pages project. Only the publication step requires hosting credentials. [Release workflow](../.github/workflows/publish-mypdf.yml)
+
+## Building from source
+
+1. Check out the pinned upstream revision, or join the two source archive parts in order and extract the ZIP. Use Node 24.
+2. Apply `build-config/source-modifications.patch` in the upstream tree. Copy the source overlays from this directory into the upstream paths listed in **Restore pinned BentoPDF source** in the release workflow. This step installs the language resolver, native picker, localized static-page generator and merge input handler.
+3. Run `npm ci` in the upstream checkout.
+4. From the MyPDF repository, run `node build-config/complete-build.mjs /path/to/upstream github /path/to/empty/output`. Use `cloudflare` and a separate empty output directory for the other edition.
+5. Serve the entire output at the corresponding base path, including its dotfiles and Cloudflare headers. Check English and both Chinese merge pages and open the language menu on a nested tool page.
+
+The build copies the hosted engines, licensed fonts and editor resources from this repository. It splits the LibreOffice engine into 20 MiB segments. Asset provenance is listed in `editor-resources/provenance.json` and `offline-resources/manifest.json`. Engine and font notices accompany their respective assets.
