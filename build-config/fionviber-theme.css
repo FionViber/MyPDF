@@ -83,6 +83,26 @@ body.lp .tool-fav-btn { color: var(--asq-muted); }
 body.lp .tool-fav-btn:hover { color: var(--asq-blue); }
 body.lp .tool-fav-btn.is-favorite { color: #805900; }
 
+/* The landing stylesheet gives the settings dialog its own literal surface colours. */
+body.lp #shortcuts-modal { background-color: rgb(21 46 72 / 55%); }
+body.lp #shortcuts-modal > div { background-color: var(--asq-paper); border-color: var(--asq-line); border-radius: 0; box-shadow: 0 8px 28px rgb(21 46 72 / 18%); }
+body.lp #shortcuts-modal > div > div:is(:first-child, :last-child) { border-color: var(--asq-line); border-radius: 0; }
+body.lp #shortcuts-modal div:has(> #shortcuts-tab-btn),
+body.lp #shortcuts-tab-content > div:nth-child(2) { background-color: var(--asq-pale); border-color: var(--asq-line); border-radius: 0; }
+body.lp #shortcuts-modal :is(button, input:not([type=checkbox]), #shortcut-search),
+body.lp #shortcuts-list .shortcut-input { border-radius: 0; }
+body.lp #shortcuts-list .shortcut-item,
+body.lp #preferences-tab-content .bg-gray-900 { background: #f5f9fc; border-color: var(--asq-line); border-radius: 0; }
+body.lp #shortcuts-list .shortcut-item:hover,
+body.lp #preferences-tab-content a.bg-gray-900:hover,
+body.lp #shortcuts-modal #close-shortcuts-modal:hover { background-color: var(--asq-pale); border-color: var(--asq-control); }
+body.lp #shortcut-search, body.lp #shortcuts-list .shortcut-input { background: var(--asq-paper); color: var(--asq-ink); border-color: var(--asq-control); }
+body.lp #shortcut-search:focus-visible, body.lp #shortcuts-list .shortcut-input:focus-visible { outline: 2px solid var(--asq-focus); outline-offset: -2px; box-shadow: none; }
+body.lp #shortcuts-tab-content > div:nth-child(2) .text-yellow-300 { color: #765008; }
+body.lp #shortcuts-modal input.peer:not(:checked) + div { background-color: #8496a6; }
+body.lp #reset-shortcuts-btn { color: #962d39; border-color: #b2656c; }
+body.lp #reset-shortcuts-btn:hover { color: #76232d; background-color: #fbebee; }
+
 /* Edit PDF Text has its own theme API. Keep the page, overlays and document fonts intact. */
 body #text-editor-app {
   --ecbg: var(--asq-page); --ecpanel: var(--asq-paper); --ecpanel2: var(--asq-pale);
