@@ -1,0 +1,135 @@
+/* MyPDF application chrome, using the FionViber editorial palette. */
+:root {
+  --asq-page: #edf2f7;
+  --asq-paper: #fff;
+  --asq-pale: #e6f0f8;
+  --asq-line: #d8e2eb;
+  --asq-control: #879bad;
+  --asq-ink: #172b3a;
+  --asq-muted: #546674;
+  --asq-navy: #152e48;
+  --asq-blue: #07558c;
+  --asq-focus: #0066b9;
+}
+body, body.bg-gray-900 { background-color: var(--asq-page); color: var(--asq-ink); }
+body > nav.bg-gray-800 { background-color: var(--asq-pale); border-color: var(--asq-line); }
+body > footer { background-color: var(--asq-paper); border-color: var(--asq-line); }
+
+body > nav img[alt="MyPDF Logo"], body > footer img[alt="MyPDF Logo"] {
+  filter: grayscale(1) brightness(.64) sepia(1) saturate(4) hue-rotate(157deg);
+}
+
+/* Keep document pages, annotations, colour tools and editable content in their own colour space. */
+@scope (body) to (:is(svg, canvas, iframe, video, img, [contenteditable=true], .pdfViewer, .textLayer, .annotationLayer, .annotationEditorLayer, .canvas-container, #pageWrap, [data-color], .color-swatch, input[type=color])) {
+  .bg-gray-950, .bg-gray-900 { background-color: var(--asq-page); }
+  .bg-gray-800 { background-color: var(--asq-paper); }
+  .bg-gray-700 { background-color: var(--asq-pale); }
+  .bg-gray-600 { background-color: #d3e2ee; }
+  .border-gray-800, .border-gray-700, .divide-gray-700 > :not(:last-child) { border-color: var(--asq-line); }
+  .border-gray-600, .border-gray-500 { border-color: var(--asq-control); }
+  .text-white, .text-gray-50, .text-gray-100 { color: var(--asq-on, var(--asq-navy)); }
+  .text-gray-200, .text-gray-300 { color: var(--asq-on, var(--asq-ink)); }
+  .text-gray-400, .text-gray-500 { color: var(--asq-on, var(--asq-muted)); }
+  .text-indigo-200, .text-indigo-300, .text-indigo-400, .text-blue-300, .text-blue-400 { color: var(--asq-on, var(--asq-blue)); }
+  .border-indigo-400, .border-indigo-500, .border-indigo-600 { border-color: var(--asq-blue); }
+  .bg-indigo-500, .bg-indigo-600, .bg-indigo-700, .bg-blue-600, .btn-gradient {
+    --asq-on: white;
+    color: white; background-color: var(--asq-blue);
+  }
+  .btn-gradient { background-image: none; border-radius: 0; }
+  .btn-gradient:enabled:hover, .hover\:bg-indigo-700:hover, .hover\:bg-blue-700:hover { background-color: var(--asq-navy); color: white; }
+  .hover\:bg-gray-700:hover, .hover\:bg-gray-600:hover { background-color: #d8e7f2; }
+  .hover\:text-white:hover { color: var(--asq-on, var(--asq-navy)); }
+  .hover\:text-indigo-300:hover, .hover\:text-indigo-400:hover { color: var(--asq-focus); }
+  .text-green-300, .text-green-400 { color: #18663f; }
+  .text-amber-300, .text-yellow-300, .text-yellow-400 { color: #775008; }
+  .text-red-300, .text-red-400 { color: #a32a31; }
+  :is(.bg-red-600, .bg-red-700, .bg-green-600, .bg-green-700, .bg-black, .bg-slate-900) { --asq-on: white; }
+  :is(.fixed.inset-0.bg-gray-900, .fixed.inset-0.bg-black) { background-color: rgb(21 46 72 / 68%); }
+  :is(.fixed.inset-0.bg-gray-900, .fixed.inset-0.bg-black) > :is(.bg-gray-800, .bg-gray-700) { --asq-on: initial; color: var(--asq-ink); }
+  :is(button, a, label, input:not([type=radio]):not([type=range]), select, textarea, kbd, [role=menu], [role=listbox], .rounded, .rounded-sm, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl, .rounded-3xl):not([role=switch]) { border-radius: 0; }
+  :is(.shadow-sm, .shadow-md, .shadow-lg, .shadow-xl):not(:focus-visible) { box-shadow: none; }
+  :is(input, textarea)::placeholder { color: var(--asq-muted); }
+  input:is([type=checkbox], [type=radio], [type=range]) { accent-color: var(--asq-blue); }
+  :is(button, a[href], select, textarea, input:not([type=file]), summary, [tabindex="0"]):focus-visible {
+    outline: 2px solid var(--asq-focus); outline-offset: -2px;
+  }
+  #drop-zone { background-color: #f5f9fc; border-color: var(--asq-control); border-radius: 0; }
+  #drop-zone:hover, #drop-zone:focus-within, #drop-zone.bg-gray-700 { background-color: var(--asq-pale); border-color: var(--asq-blue); }
+  #drop-zone:has(:focus-visible) { outline: 2px solid var(--asq-focus); outline-offset: -2px; }
+  #drop-zone .ph, #back-to-tools { color: var(--asq-blue); }
+  #search-bar, #node-search, #language-switcher input { background-color: var(--asq-paper); border-color: var(--asq-control); color: var(--asq-ink); }
+  #search-bar ~ span:has(#open-shortcuts-btn) {
+    background: linear-gradient(var(--asq-paper), var(--asq-paper)) left center / calc(100% - 2px) calc(100% - 6px) no-repeat;
+  }
+  #language-switcher > button { background-color: var(--asq-paper); color: var(--asq-navy); border-color: var(--asq-control); border-radius: 0; }
+  #language-switcher button[aria-checked=true] { background-color: var(--asq-pale); color: var(--asq-blue); }
+  .btn-gradient:focus-visible { outline: 2px solid white; outline-offset: -4px; box-shadow: inset 0 0 0 2px var(--asq-focus); }
+}
+
+/* The upstream directory owns the grid, motion, card geometry and typography. */
+html body.lp {
+  --lp-bg: var(--asq-page); --lp-bg-2: var(--asq-paper); --lp-bg-3: var(--asq-pale);
+  --lp-well: var(--asq-line); --lp-line: var(--asq-line); --lp-line-2: #bfceda;
+  --lp-text: var(--asq-navy); --lp-text-2: var(--asq-muted); --lp-dim: var(--asq-muted);
+  --lp-accent: var(--asq-blue); --lp-accent-hover: var(--asq-navy);
+  --lp-accent-2: var(--asq-focus); --lp-accent-3: var(--asq-blue);
+  background-color: var(--asq-page); color: var(--asq-ink);
+}
+body.lp .category-header { border-bottom-color: var(--asq-line); }
+body.lp #tool-grid .category-group, body.lp #tool-grid #search-results { --tile-fg: var(--asq-blue); }
+body.lp #tool-grid .tool-card > :is(.ph, svg) { color: var(--asq-blue); }
+body.lp .tool-fav-btn { color: var(--asq-muted); }
+body.lp .tool-fav-btn:hover { color: var(--asq-blue); }
+body.lp .tool-fav-btn.is-favorite { color: #805900; }
+
+/* Edit PDF Text has its own theme API. Keep the page, overlays and document fonts intact. */
+body #text-editor-app {
+  --ecbg: var(--asq-page); --ecpanel: var(--asq-paper); --ecpanel2: var(--asq-pale);
+  --ecline: #bacbd8; --ectext: var(--asq-ink); --ecmuted: var(--asq-muted);
+  --ecaccent: var(--asq-blue); --ecstage: #d8e2eb;
+}
+body #text-editor-app :is(.btn, .segmented, .ecmenu, .stepbtn, #findbar input, #spellbar input) { border-radius: 0; }
+body #text-editor-app .ecmenu { background-color: var(--asq-paper); }
+body #text-editor-app #toast { background-color: var(--asq-navy); color: white; }
+body #text-editor-app :is(.btn, .stepbtn, .toolright button[data-tool]):hover { background-color: #d8e7f2; color: var(--asq-navy); }
+body #text-editor-app :is(.btn.big, .segmented button.on) { background-color: var(--asq-blue); color: white; }
+body #workflow-app #rete-container { background-color: var(--asq-page); background-image: radial-gradient(circle, #9caebc 1px, transparent 1px); }
+body #workflow-app .wf-card { background-color: var(--asq-paper); border-radius: 0; }
+body #workflow-app .wf-title { color: var(--asq-navy); }
+body #workflow-app .wf-desc { color: var(--asq-muted); }
+body #workflow-app .wf-divider { background-color: var(--asq-line); }
+body #workflow-app .wf-socket { border-color: var(--asq-paper); }
+body #workflow-app .connection .main-path { stroke: var(--asq-blue); }
+
+/* EmbedPDF renders in a shadow root and exposes theme tokens on its host. */
+embedpdf-container[data-color-scheme="light"] {
+  --ep-background-app: var(--asq-page); --ep-background-surface: var(--asq-paper);
+  --ep-background-surface-alt: var(--asq-pale); --ep-background-elevated: var(--asq-paper);
+  --ep-background-input: var(--asq-paper); --ep-foreground-primary: var(--asq-navy);
+  --ep-foreground-secondary: var(--asq-ink); --ep-foreground-muted: var(--asq-muted);
+  --ep-accent-primary: var(--asq-blue); --ep-accent-primary-hover: var(--asq-navy);
+  --ep-accent-primary-active: var(--asq-navy); --ep-accent-primary-light: var(--asq-pale);
+  --ep-foreground-on-accent: white; --ep-accent-primary-foreground: white;
+  --ep-interactive-focus: var(--asq-focus); --ep-interactive-selected: #d3e5f3;
+  --ep-interactive-hover: var(--asq-pale); --ep-border-default: #bacbd8; --ep-border-subtle: var(--asq-line);
+}
+embedpdf-container[data-color-scheme="dark"] {
+  --ep-background-app: #101e2c; --ep-background-surface: #192f44;
+  --ep-background-surface-alt: #233c52; --ep-accent-primary: #8dc6ed;
+  --ep-accent-primary-foreground: #112b40; --ep-interactive-hover: #304b61;
+}
+html:has(link[data-mypdf-viewer]) {
+  --main-color: var(--asq-ink); --body-bg-color: var(--asq-page);
+  --toolbar-bg-color: var(--asq-paper); --toolbar-border-color: var(--asq-line);
+  --toolbar-icon-bg-color: var(--asq-navy); --toolbar-icon-hover-bg-color: var(--asq-blue);
+  --sidebar-toolbar-bg-color: var(--asq-pale); --sidebar-narrow-bg-color: var(--asq-pale);
+  --button-hover-color: var(--asq-pale); --toggled-btn-bg-color: var(--asq-blue); --toggled-btn-color: white;
+  --doorhanger-bg-color: var(--asq-paper); --doorhanger-border-color: var(--asq-line);
+  --field-color: var(--asq-ink); --field-bg-color: var(--asq-paper); --field-border-color: var(--asq-control);
+}
+html:has(link[data-mypdf-viewer]) body > .toolbar { background-color: var(--asq-pale); box-shadow: none; }
+html:has(link[data-mypdf-viewer]) body > .toolbar :is(button, select, input, option) { background-color: var(--asq-paper); color: var(--asq-navy); border-color: var(--asq-control); border-radius: 0; }
+html:has(link[data-mypdf-viewer]) body > .toolbar button:enabled:hover { background-color: #d3e5f3; }
+html:has(link[data-mypdf-viewer]) body > .toolbar .page-info { color: var(--asq-ink); }
+html:has(link[data-mypdf-viewer]) #viewerContainer { background-color: #d8e2eb; }

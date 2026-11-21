@@ -1,3 +1,4 @@
+import { applyTheme } from './apply-theme.mjs';
 import { mkdir, readdir, cp, writeFile, readFile, rm } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
@@ -44,4 +45,5 @@ node([fileURLToPath(new URL('localize-editor.mjs',import.meta.url)),host,output]
 env.MYPDF_OUTPUT = output;
 env.SITE_URL = new URL(home).origin;
 node(['scripts/generate-i18n-pages.mjs']);
+await applyTheme(output, base);
 console.log('Ready:',home,output);
