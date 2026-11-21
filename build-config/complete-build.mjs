@@ -40,4 +40,8 @@ async function omitMaps(folder){
 await omitMaps(output);
 node([fileURLToPath(new URL('finalize-host.mjs',import.meta.url)),host,output]);
 node([fileURLToPath(new URL('localize-editor.mjs',import.meta.url)),host,output]);
+// Render the original project's common, tools and content translations for every supported language.
+env.MYPDF_OUTPUT = output;
+env.SITE_URL = new URL(home).origin;
+node(['scripts/generate-i18n-pages.mjs']);
 console.log('Ready:',home,output);
