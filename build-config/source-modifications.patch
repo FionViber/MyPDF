@@ -112,19 +112,23 @@ index ae81b2f..20f588f 100644
 +  <p class="text-center text-sm my-4"><a href="https://github.com/FionViber/MyPDF">MyPDF source code</a> · <a href="https://github.com/alam00000/bentopdf">BentoPDF</a> · AGPL-3.0</p></body>
  </html>
 diff --git a/src/js/main.ts b/src/js/main.ts
-index 7ca7c0b..439e351 100644
+index 7ca7c0b..4d6b1ea 100644
 --- a/src/js/main.ts
 +++ b/src/js/main.ts
-@@ -141,7 +141,7 @@ const init = async () => {
-       const brandName = __BRAND_NAME__ || 'BentoPDF';
-       document.title = trText('{{brandName}} - {{title}}', {
-         brandName,
--        title: t('simpleMode.title'),
-+        title: (import.meta.env.VITE_BRAND_NAME || t('simpleMode.title')),
+@@ -139,17 +139,16 @@ const init = async () => {
        });
  
+       const brandName = __BRAND_NAME__ || 'BentoPDF';
+-      document.title = trText('{{brandName}} - {{title}}', {
+-        brandName,
+-        title: t('simpleMode.title'),
+-      });
++      const toolHeading = document.querySelector('h1')?.textContent?.trim();
++      document.title = document.getElementById('tools-header') || !toolHeading
++        ? brandName : toolHeading + ' · ' + brandName;
+ 
        const toolsHeader = document.getElementById('tools-header');
-@@ -149,7 +149,7 @@ const init = async () => {
+       if (toolsHeader) {
          const title = toolsHeader.querySelector('h2');
          const subtitle = toolsHeader.querySelector('p');
          if (title) {

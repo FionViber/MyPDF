@@ -1,5 +1,8 @@
 (() => {
   const script = document.currentScript;
+  document.documentElement.dataset.officeIsolation = window.crossOriginIsolated ? 'ready' : 'pending';
+  document.documentElement.dataset.officeController = navigator.serviceWorker?.controller?.scriptURL || '';
+
   if (!script || window.crossOriginIsolated || !('serviceWorker' in navigator)) return;
   const root = new URL('./', script.src);
   const key = 'mypdf:coi:' + root.pathname;

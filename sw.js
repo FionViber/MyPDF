@@ -5,7 +5,7 @@
  * Version: 1.1.0
  */
 
-const CACHE_VERSION = 'mypdf-isolated-v4';
+const CACHE_VERSION = 'mypdf-isolated-5a06b397de2323';
 const CACHE_NAME = `${CACHE_VERSION}-static`;
 
 function withIsolation(response, request) {

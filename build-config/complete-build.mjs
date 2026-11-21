@@ -14,7 +14,7 @@ await mkdir(output,{recursive:true});
 if ((await readdir(output)).length) throw Error('The build output must be empty.');
 const base = host==='github'?'/MyPDF/':'/';
 const home = host==='github'?'https://fionviber.github.io/MyPDF/':'https://mypdf-zdf.pages.dev/';
-const env = {...process.env, BASE_URL:base, SITE_URL:home, ALLOW_INDEXING:'false', SIMPLE_MODE:'true',
+const env = {...process.env, BASE_URL:base, SITE_URL:home, npm_package_version:'2.8.12', ALLOW_INDEXING:'false', SIMPLE_MODE:'true',
   VITE_BRAND_NAME:'MyPDF', VITE_USE_CDN:'false',
   VITE_WASM_GS_URL:home+'wasm/gs/', VITE_WASM_PYMUPDF_URL:home+'wasm/pymupdf/', VITE_WASM_CPDF_URL:home+'wasm/coherentpdf/',
   VITE_TESSERACT_WORKER_URL:home+'offline-resources/tesseract/worker.min.js',

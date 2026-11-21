@@ -1,3 +1,4 @@
+import {createHash} from "node:crypto";
 import { cp, readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -24,3 +25,13 @@ for(const entry of await readdir(path.join(out,"assets"))){
   }
   if(js!==original)await writeFile(file,js);
 }
+
+// Runtime defaults can change inside a vendor chunk even if the original bundler name is unchanged.
+const cacheHash=createHash('sha256');
+for(const name of (await readdir(path.join(out,'assets'))).filter(n=>n.endsWith('.js')).sort()){
+  cacheHash.update(name);cacheHash.update(await readFile(path.join(out,'assets',name)));
+}
+const worker=path.join(out,'sw.js');
+const sw=await readFile(worker,'utf8');
+await writeFile(worker,sw.replace(/const CACHE_VERSION = '[^']+';/,
+  "const CACHE_VERSION = 'mypdf-isolated-"+cacheHash.digest('hex').slice(0,14)+"';"));

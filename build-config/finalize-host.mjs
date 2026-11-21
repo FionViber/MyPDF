@@ -32,7 +32,7 @@ async function walk(directory){
     const full=join(directory,file.name);
     if(file.isDirectory()){await walk(full);continue;}
     if(file.name.endsWith('.html')){
-      const original=await read(full); let html=original;
+      const original=await read(full); let html=original.replaceAll('<span id="app-version">Unknown</span>','<span id="app-version">2.8.12</span>');
       if(file.name==='index.html' && html.includes('simpleMode.title')){
         html=html.replaceAll('<title>PDF Tools</title>','<title>MyPDF</title>').replaceAll('content="PDF Tools"','content="MyPDF"').replace(/(<span data-i18n="simpleMode.title">)[^<]*(<\/span>)/,'$1MyPDF$2');
         if(!html.includes('https://github.com/FionViber/MyPDF'))html=html.replace('</body>',sourceLinks+'\n</body>');
