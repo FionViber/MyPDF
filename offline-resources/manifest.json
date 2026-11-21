@@ -1,926 +1,8 @@
 {
-  "source": "BentoPDF",
-  "tesseract": "7.0.0",
-  "modelSet": "tessdata_fast",
-  "languages": [
-    "eng",
-    "afr",
-    "amh",
-    "ara",
-    "asm",
-    "aze",
-    "aze_cyrl",
-    "bel",
-    "ben",
-    "bod",
-    "bos",
-    "bul",
-    "cat",
-    "ceb",
-    "ces",
-    "chi_sim",
-    "chi_tra",
-    "chr",
-    "cym",
-    "dan",
-    "deu",
-    "dzo",
-    "ell",
-    "enm",
-    "epo",
-    "est",
-    "eus",
-    "fas",
-    "fin",
-    "fra",
-    "frk",
-    "frm",
-    "gle",
-    "glg",
-    "grc",
-    "guj",
-    "hat",
-    "heb",
-    "hin",
-    "hrv",
-    "hun",
-    "iku",
-    "ind",
-    "isl",
-    "ita",
-    "ita_old",
-    "jav",
-    "jpn",
-    "kan",
-    "kat",
-    "kat_old",
-    "kaz",
-    "khm",
-    "kir",
-    "kor",
-    "kur",
-    "lao",
-    "lat",
-    "lav",
-    "lit",
-    "mal",
-    "mar",
-    "mkd",
-    "mlt",
-    "msa",
-    "mya",
-    "nep",
-    "nld",
-    "nor",
-    "ori",
-    "pan",
-    "pol",
-    "por",
-    "pus",
-    "ron",
-    "rus",
-    "san",
-    "sin",
-    "slk",
-    "slv",
-    "spa",
-    "spa_old",
-    "sqi",
-    "srp",
-    "srp_latn",
-    "swa",
-    "swe",
-    "syr",
-    "tam",
-    "tel",
-    "tgk",
-    "tgl",
-    "tha",
-    "tir",
-    "tur",
-    "uig",
-    "ukr",
-    "urd",
-    "uzb",
-    "uzb_cyrl",
-    "vie",
-    "yid"
-  ],
-  "unavailable": [],
-  "assets": [
-    {
-      "path": "tesseract/worker.min.js",
-      "url": "https://cdn.jsdelivr.net/npm/tesseract.js@7.0.0/dist/worker.min.js",
-      "bytes": 111307,
-      "sha256": "576b7df7e3393e137e51849357c9adb53fe7ac1bb69bfa06cf3d61520f182c6d"
-    },
-    {
-      "path": "tesseract/worker.min.js.LICENSE.txt",
-      "url": "https://cdn.jsdelivr.net/npm/tesseract.js@7.0.0/dist/worker.min.js.LICENSE.txt",
-      "bytes": 466,
-      "sha256": "45f54171aeaa1d10c0c1a66f374b7bba1f02472b1487fbe892eec04f840002ac"
-    },
-    {
-      "path": "tesseract/tesseract-core-simd-lstm.wasm.js",
-      "url": "https://cdn.jsdelivr.net/npm/tesseract.js-core@7.0.0/tesseract-core-simd-lstm.wasm.js",
-      "bytes": 3899472,
-      "sha256": "c58b46a4c796c0b8afccf77591d5b875b6896b45d402bbce8caa6f5362447b38"
-    },
-    {
-      "path": "tesseract/tesseract-core-simd-lstm.wasm",
-      "url": "https://cdn.jsdelivr.net/npm/tesseract.js-core@7.0.0/tesseract-core-simd-lstm.wasm",
-      "bytes": 2857601,
-      "sha256": "34e8d50cac216427d86bf397d610fdd9f49492539bbcdfbfccc4eda20c810bea"
-    },
-    {
-      "path": "tesseract/eng.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/eng.traineddata",
-      "bytes": 4113088,
-      "sha256": "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2"
-    },
-    {
-      "path": "tesseract/afr.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/afr.traineddata",
-      "bytes": 2652786,
-      "sha256": "126d480bfae95be2a911ed4916465e27bde75fea2da631e21b96762e5f239646"
-    },
-    {
-      "path": "tesseract/amh.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/amh.traineddata",
-      "bytes": 5470094,
-      "sha256": "3ec3311833a108e07d58a1152b00c0cf1848752e4f85769d46e8ca2b718a2ccc"
-    },
-    {
-      "path": "tesseract/ara.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/ara.traineddata",
-      "bytes": 1432056,
-      "sha256": "e3206d3dc87fd50c24a0fb9f01838615911d25168f4e64415244b67d2bb3e729"
-    },
-    {
-      "path": "tesseract/asm.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/asm.traineddata",
-      "bytes": 2045427,
-      "sha256": "299c7f6135ac72ca4820d4c39e3cf65b32b24127fc78c4938d11153adbb9fa77"
-    },
-    {
-      "path": "tesseract/aze.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/aze.traineddata",
-      "bytes": 3524799,
-      "sha256": "a365310848aecb739f19369cb3831d4660fcd9345d798e91a3042455f9ccc9f0"
-    },
-    {
-      "path": "tesseract/aze_cyrl.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/aze_cyrl.traineddata",
-      "bytes": 1943672,
-      "sha256": "2e96ab67817819e14a3a2d6250261130457c8e78dde3077841ab391fe003551c"
-    },
-    {
-      "path": "tesseract/bel.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/bel.traineddata",
-      "bytes": 3692098,
-      "sha256": "9c6668a0b202f3dcfe074b64620d108e1902ca7498a40b5a11b4a3da6112d58f"
-    },
-    {
-      "path": "tesseract/ben.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/ben.traineddata",
-      "bytes": 855841,
-      "sha256": "31163084c279aaebd376216f0c3d5c17ad4b5fee8db49dae79c20000b5de5964"
-    },
-    {
-      "path": "tesseract/bod.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/bod.traineddata",
-      "bytes": 1966440,
-      "sha256": "1aab1db8dae337dfc8fa0f94a1c137c47e4c7857c3e6b30093ec726cef912a0b"
-    },
-    {
-      "path": "tesseract/bos.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/bos.traineddata",
-      "bytes": 2498242,
-      "sha256": "6cc8cc87cf1afbfa6a41febb725dbadb14bed96a46685906440a6eb8a7892f04"
-    },
-    {
-      "path": "tesseract/bul.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/bul.traineddata",
-      "bytes": 1675212,
-      "sha256": "aebc9b0fcc8cfaf8a9f38a02bb7b85052bd850744696a2c11cf0081820e5b21e"
-    },
-    {
-      "path": "tesseract/cat.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/cat.traineddata",
-      "bytes": 1146012,
-      "sha256": "250db73cd5b380d2798581295dc12f20d0828cdb335a65d833d12dfdbf57117d"
-    },
-    {
-      "path": "tesseract/ceb.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/ceb.traineddata",
-      "bytes": 716214,
-      "sha256": "346a39de801495c93ece6656d018d7d19d298af7db42d82ebae99dfe8ee14961"
-    },
-    {
-      "path": "tesseract/ces.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/ces.traineddata",
-      "bytes": 3795684,
-      "sha256": "934bcaf97ef3348413263331131c9fa7f55f30db333c711929c124fb635f7e1b"
-    },
-    {
-      "path": "tesseract/chi_sim.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/chi_sim.traineddata",
-      "bytes": 2469156,
-      "sha256": "a5fcb6f0db1e1d6d8522f39db4e848f05984669172e584e8d76b6b3141e1f730"
-    },
-    {
-      "path": "tesseract/chi_tra.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/chi_tra.traineddata",
-      "bytes": 2366642,
-      "sha256": "529c5b5797d64b126065cd55f2bb4c7fd7b15790798091b1ff259941a829330b"
-    },
-    {
-      "path": "tesseract/chr.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/chr.traineddata",
-      "bytes": 374944,
-      "sha256": "a4da60d844ebb9dbaeb8843a92290083c1fd275b167fc9c9686d790ccd311fab"
-    },
-    {
-      "path": "tesseract/cym.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/cym.traineddata",
-      "bytes": 2208919,
-      "sha256": "7f6ee3374749645a7c92dfe773f5c3d6492194d371712ecfd775edc53c363fb4"
-    },
-    {
-      "path": "tesseract/dan.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/dan.traineddata",
-      "bytes": 2580059,
-      "sha256": "acb1fd074487a31d1294fcdfd7d7c673467ffd8aeacb2ccd61ebcbf04eb4e2fa"
-    },
-    {
-      "path": "tesseract/deu.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/deu.traineddata",
-      "bytes": 1525436,
-      "sha256": "19d219bbb6672c869d20a9636c6816a81eb9a71796cb93ebe0cb1530e2cdb22d"
-    },
-    {
-      "path": "tesseract/dzo.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/dzo.traineddata",
-      "bytes": 449596,
-      "sha256": "364d244fad3f8d4438c9f7ee7642b9b876a4620cf76c0115619b979d6bfef1fa"
-    },
-    {
-      "path": "tesseract/ell.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/ell.traineddata",
-      "bytes": 1419514,
-      "sha256": "4fba8a0b461038d51f1c20d043d4f2ac38c4e778f1b90830847f7bd8fa3ba726"
-    },
-    {
-      "path": "tesseract/enm.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/enm.traineddata",
-      "bytes": 3101551,
-      "sha256": "d312ab5aafc9f99a78082c75e035b0873d2da6cb6d95cde03e219c1b26750034"
-    },
-    {
-      "path": "tesseract/epo.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/epo.traineddata",
-      "bytes": 4728393,
-      "sha256": "71181a6a07af3812aeedfa1aa993623424f4b8a6aac3e271b36ec11774e674d9"
-    },
-    {
-      "path": "tesseract/est.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/est.traineddata",
-      "bytes": 4458101,
-      "sha256": "515d4a773682b286369511e83fe412bcff16a92a886f99c761c1d760a7e30456"
-    },
-    {
-      "path": "tesseract/eus.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/eus.traineddata",
-      "bytes": 5175921,
-      "sha256": "40e7418296c355d9fd9ca843d115c51e740089e576e887443e61704823cd6624"
-    },
-    {
-      "path": "tesseract/fas.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/fas.traineddata",
-      "bytes": 431500,
-      "sha256": "db1c0a91208aff00d3cf1ed2c1d23f76419afd5f024688b4f71adc3f2ce4a505"
-    },
-    {
-      "path": "tesseract/fin.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/fin.traineddata",
-      "bytes": 7865732,
-      "sha256": "61a04cd62b507c3d9ae0e1cda399e6715ebf49dea9df47897c8acdcd3bd3e13c"
-    },
-    {
-      "path": "tesseract/fra.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/fra.traineddata",
-      "bytes": 1130365,
-      "sha256": "ced037562e8c80c13122dece28dd477d399af80911a28791a66a63ac1e3445ca"
-    },
-    {
-      "path": "tesseract/frk.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/frk.traineddata",
-      "bytes": 20,
-      "sha256": "c10cde70e87aa83d0996c0ffdf6afe1e5ba9938b8f78a4f78e879e78da147ae9"
-    },
-    {
-      "path": "tesseract/frm.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/frm.traineddata",
-      "bytes": 2024948,
-      "sha256": "3fe6eed7108136a85dbbf53baf23d9fb435afe1262323f5fba7711b6c6048728"
-    },
-    {
-      "path": "tesseract/gle.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/gle.traineddata",
-      "bytes": 1181824,
-      "sha256": "2fe9ba6119aac7e2a20d6cfb69ed91afe9520f41bc7e3a903f84280f2663858d"
-    },
-    {
-      "path": "tesseract/glg.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/glg.traineddata",
-      "bytes": 2554555,
-      "sha256": "7947619c5544d86849f563bd737ad90dbea9f5319fbd838c4747a7a1cd40b260"
-    },
-    {
-      "path": "tesseract/grc.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/grc.traineddata",
-      "bytes": 2246328,
-      "sha256": "57b735557eeb67503803cf9f99786dd0b62417931352601952a0b1a23b6c4759"
-    },
-    {
-      "path": "tesseract/guj.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/guj.traineddata",
-      "bytes": 1418394,
-      "sha256": "fa69658614b4946a9afae8853d67e0689838803dfa3d12c2e35ec53ee6f8df34"
-    },
-    {
-      "path": "tesseract/hat.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/hat.traineddata",
-      "bytes": 1976902,
-      "sha256": "842e489a0e0eb12c72b5cb12e9e6624aae5928de1d097d76445474c263ce8b5a"
-    },
-    {
-      "path": "tesseract/heb.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/heb.traineddata",
-      "bytes": 961404,
-      "sha256": "11f9e43ab227f786352a50f75c94c2e9906f1baba86d93276da19da7ce0904db"
-    },
-    {
-      "path": "tesseract/hin.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/hin.traineddata",
-      "bytes": 1122751,
-      "sha256": "4c73ffc59d497c186b19d1e90f5d721d678ea6b2e277b719bee4e2af12271825"
-    },
-    {
-      "path": "tesseract/hrv.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/hrv.traineddata",
-      "bytes": 4103348,
-      "sha256": "9e515d9832ce259dbab550b1cc6b998f8b929faf2edacaaca981b05adb130571"
-    },
-    {
-      "path": "tesseract/hun.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/hun.traineddata",
-      "bytes": 5296273,
-      "sha256": "35067e7cfe102dcdc953f9a758fdfaa6296b17a1ee6d874ee780fa306430b9fb"
-    },
-    {
-      "path": "tesseract/iku.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/iku.traineddata",
-      "bytes": 2802266,
-      "sha256": "81ef16ee0fa0a3548c8a2d1ff10786e3278b6720e51cefd9a81a506f52660223"
-    },
-    {
-      "path": "tesseract/ind.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/ind.traineddata",
-      "bytes": 1122661,
-      "sha256": "69786901da87ab8766c1ea7fbb10b28f2110c14da3f6c8f2735df131fba95d88"
-    },
-    {
-      "path": "tesseract/isl.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/isl.traineddata",
-      "bytes": 2278973,
-      "sha256": "5ec828c363f3f0062c3caf08216677cf5f3c0c981b05fab445123a16b98f10a9"
-    },
-    {
-      "path": "tesseract/ita.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/ita.traineddata",
-      "bytes": 2701314,
-      "sha256": "b8f89e1e785118dac4d51ae042c029a64edb5c3ee42ef73027a6d412748d8827"
-    },
-    {
-      "path": "tesseract/ita_old.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/ita_old.traineddata",
-      "bytes": 3286123,
-      "sha256": "ee85de25acf70d5eeefdb3012424814a18ab368183099cc2c3f2fe2d3dce3b02"
-    },
-    {
-      "path": "tesseract/jav.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/jav.traineddata",
-      "bytes": 2982741,
-      "sha256": "46107b6bed3bf2d9617e5e192e52524e368242543fead1a7175c363dddd400f2"
-    },
-    {
-      "path": "tesseract/jpn.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/jpn.traineddata",
-      "bytes": 2471260,
-      "sha256": "1f5de9236d2e85f5fdf4b3c500f2d4926f8d9449f28f5394472d9e8d83b91b4d"
-    },
-    {
-      "path": "tesseract/kan.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/kan.traineddata",
-      "bytes": 3608331,
-      "sha256": "bd31e6b6ae93271e3bcf5383d306d8eefbb91542937cd6d735a5930c970e61d8"
-    },
-    {
-      "path": "tesseract/kat.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/kat.traineddata",
-      "bytes": 2524769,
-      "sha256": "557abb6f1c68bc1b286f1bdd00bb6b82f85a427a91899807dab6c2f6c7986731"
-    },
-    {
-      "path": "tesseract/kat_old.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/kat_old.traineddata",
-      "bytes": 423167,
-      "sha256": "7b77290303d5d88db6adc5b679d1eb876e3c62f64c8999e919bcb4608af379bc"
-    },
-    {
-      "path": "tesseract/kaz.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/kaz.traineddata",
-      "bytes": 4734644,
-      "sha256": "fcc01eed3815a42b9c6321c4c9d3606f39b166cbf95ade98b7d8d12063eae53d"
-    },
-    {
-      "path": "tesseract/khm.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/khm.traineddata",
-      "bytes": 1446926,
-      "sha256": "47f110575341b322052f3becbefee61a3ecf1ef549352b5d4d33d28afe30d099"
-    },
-    {
-      "path": "tesseract/kir.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/kir.traineddata",
-      "bytes": 9928497,
-      "sha256": "9777956300900b528d26932cf80693f95e75143433fb851d567194bcc38a31ae"
-    },
-    {
-      "path": "tesseract/kor.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/kor.traineddata",
-      "bytes": 1677415,
-      "sha256": "6b85e11d9bbf07863b97b3523b1b112844c43e713df8b66418a081fd1060b3b2"
-    },
-    {
-      "path": "tesseract/lao.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/lao.traineddata",
-      "bytes": 6386744,
-      "sha256": "20124962e93e68121e02c49a949d1f9df5db87dd62e5e4aa578362ca532444f8"
-    },
-    {
-      "path": "tesseract/lat.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/lat.traineddata",
-      "bytes": 3187463,
-      "sha256": "3859d8ba60404f4b79830622625bbc76fb4ee2808eac1ad360ffa77f0a533328"
-    },
-    {
-      "path": "tesseract/lav.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/lav.traineddata",
-      "bytes": 2717247,
-      "sha256": "7d9eaf22254b381f18b806cd6cb647862a397a7221adbce3e22cc421793a8847"
-    },
-    {
-      "path": "tesseract/lit.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/lit.traineddata",
-      "bytes": 3154896,
-      "sha256": "1e383df5b055583bc01cb5764ecdf74c540753f2cb3f8205e7105361da4bc989"
-    },
-    {
-      "path": "tesseract/mal.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/mal.traineddata",
-      "bytes": 5275996,
-      "sha256": "bd05cbf1b197e7810d2903419aedb06f9ef77bfedf50b358673c1d18d707cdb4"
-    },
-    {
-      "path": "tesseract/mar.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/mar.traineddata",
-      "bytes": 2118233,
-      "sha256": "0ba3f2d116972e72fe9e176bc84c38e81dfb6670f4ed1f7f6c8e16a27da7cb61"
-    },
-    {
-      "path": "tesseract/mkd.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/mkd.traineddata",
-      "bytes": 1600188,
-      "sha256": "58622bf154830fa62103359938564aeb8112b929759e22a48224f3ecfaac34c6"
-    },
-    {
-      "path": "tesseract/mlt.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/mlt.traineddata",
-      "bytes": 2308796,
-      "sha256": "3040b443d5d49e4183da0eaaf58d1033c3a616153d35d2342a56777f9bbb31c7"
-    },
-    {
-      "path": "tesseract/msa.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/msa.traineddata",
-      "bytes": 1747801,
-      "sha256": "e41a3e5febfec50c90371eb1cbb17a48b10cad387900e3420b1f134c1b766cba"
-    },
-    {
-      "path": "tesseract/mya.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/mya.traineddata",
-      "bytes": 4640561,
-      "sha256": "02aa6c25cfe9e583fa7b5d4131eac948f962308983f0f397df077dea58212b03"
-    },
-    {
-      "path": "tesseract/nep.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/nep.traineddata",
-      "bytes": 1002911,
-      "sha256": "280ba9450b4f21afbf5985e0de87857b75a972577c50ef0603c141ddde4f1cb8"
-    },
-    {
-      "path": "tesseract/nld.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/nld.traineddata",
-      "bytes": 6050296,
-      "sha256": "ced0e5e046a84c908a6aa7accbef9a232c4a5d9a8276691b81c6ee64d02963f6"
-    },
-    {
-      "path": "tesseract/nor.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/nor.traineddata",
-      "bytes": 3610079,
-      "sha256": "0451eb4f8049ae78196806bf878a389a2f40f1386fe038568cf4441226ba6ef2"
-    },
-    {
-      "path": "tesseract/ori.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/ori.traineddata",
-      "bytes": 1480066,
-      "sha256": "36f3135e61d501a3acfad41f5fe60b8e791274fff4c5375c969fdcca980cdbac"
-    },
-    {
-      "path": "tesseract/pan.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/pan.traineddata",
-      "bytes": 497721,
-      "sha256": "1ec0907fc3534065ea9ae190c6bb7ec9e5c74fd9d2fa996aaec7407f11ad8131"
-    },
-    {
-      "path": "tesseract/pol.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/pol.traineddata",
-      "bytes": 4765518,
-      "sha256": "c4476cdbc0e33d898d32345122b7be1cbf85ace15f920f06c7714756e1ef79b2"
-    },
-    {
-      "path": "tesseract/por.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/por.traineddata",
-      "bytes": 1982756,
-      "sha256": "c4932b937207a9514b7514d518b931a99938c02a28a5a5a553f8599ed58b7deb"
-    },
-    {
-      "path": "tesseract/pus.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/pus.traineddata",
-      "bytes": 1772087,
-      "sha256": "f15550bfe3a20ca781cf5afb7b2af6ee769c6521cf4bb990848e72856b484600"
-    },
-    {
-      "path": "tesseract/ron.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/ron.traineddata",
-      "bytes": 2376323,
-      "sha256": "9adfde6b51ba4b97efd10ea37c3070fd3fc2bad7815e81f5c3c198cd96216cc9"
-    },
-    {
-      "path": "tesseract/rus.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/rus.traineddata",
-      "bytes": 3861738,
-      "sha256": "e16e5e036cce1d9ec2b00063cf8b54472625b9e14d893a169e2b0dedeb4df225"
-    },
-    {
-      "path": "tesseract/san.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/san.traineddata",
-      "bytes": 12404677,
-      "sha256": "a399958921c64e7d2319369ade1e74b4db2577744ac5bfeabd16663cf743b91c"
-    },
-    {
-      "path": "tesseract/sin.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/sin.traineddata",
-      "bytes": 1727413,
-      "sha256": "bc75c6df2375a30c9f7e759fa7d4b58ae3ecf9ce72668a702d01acb13e551422"
-    },
-    {
-      "path": "tesseract/slk.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/slk.traineddata",
-      "bytes": 4427661,
-      "sha256": "fbcc400a9c74c6a13d922fcb1211b655d1b165387b675ed75cd2dbd756b974a5"
-    },
-    {
-      "path": "tesseract/slv.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/slv.traineddata",
-      "bytes": 3003829,
-      "sha256": "b937632c17ce5fdf20535d25feec044da10a0c4c8234f4302d5606fd671cf60d"
-    },
-    {
-      "path": "tesseract/spa.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/spa.traineddata",
-      "bytes": 2294433,
-      "sha256": "6f2e04d02774a18f01bed44b1111f2cd7f3ba7ac9dc4373cd3f898a40ea6b464"
-    },
-    {
-      "path": "tesseract/spa_old.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/spa_old.traineddata",
-      "bytes": 2894755,
-      "sha256": "11d89a6763ff134ef8f7e41b995974d36fba5d1a807156d3202d7bf991bb1823"
-    },
-    {
-      "path": "tesseract/sqi.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/sqi.traineddata",
-      "bytes": 1874705,
-      "sha256": "1d89621d9afe8ddf35b403ecf8951edea52c3a960d241f287b1a7b2c5ba8daac"
-    },
-    {
-      "path": "tesseract/srp.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/srp.traineddata",
-      "bytes": 2149931,
-      "sha256": "aa41ae3d9cc705e60d398ab38a5c3cc8b772c0d420c7d4f0859beb13d0e321b6"
-    },
-    {
-      "path": "tesseract/srp_latn.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/srp_latn.traineddata",
-      "bytes": 3281787,
-      "sha256": "54b2e001bd8a336bdffc249c1487b8b7cb712f0a031f2551930ba050ebefa2a0"
-    },
-    {
-      "path": "tesseract/swa.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/swa.traineddata",
-      "bytes": 2167651,
-      "sha256": "395439d1ec308535066cbaea9b15e0e4cc81f8609170af76ab7e7e8d3ec42f3e"
-    },
-    {
-      "path": "tesseract/swe.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/swe.traineddata",
-      "bytes": 4167034,
-      "sha256": "f7304988d41f833efebcc2d529df54b1903ecebbc3da1faabd19a0fddd4fe586"
-    },
-    {
-      "path": "tesseract/syr.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/syr.traineddata",
-      "bytes": 2207208,
-      "sha256": "7435b43466da8343619bdc43c4da8dc8581f21aab3337fa1bd22ed8a8c10af04"
-    },
-    {
-      "path": "tesseract/tam.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/tam.traineddata",
-      "bytes": 3237963,
-      "sha256": "d02fbec24be4b07e32e80d0ccfc3b6b67a3c5d61c9d0a7c8532677990912c6ec"
-    },
-    {
-      "path": "tesseract/tel.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/tel.traineddata",
-      "bytes": 2769654,
-      "sha256": "d10691fddd5b67802e1c12800ebb321d3b8bcd8d24a2ac3ff206f93188c04ab5"
-    },
-    {
-      "path": "tesseract/tgk.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/tgk.traineddata",
-      "bytes": 2602685,
-      "sha256": "7b32ed1374649b9b44b9a20ed07f1e86c1e1004c3bd11ce182496a47a18cb321"
-    },
-    {
-      "path": "tesseract/tgl.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata/raw/main/tgl.traineddata",
-      "bytes": 7321367,
-      "sha256": "767262b949901ea733023999f1b2d451f0fe82004166bd6b1074f8361967da8b"
-    },
-    {
-      "path": "tesseract/tha.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/tha.traineddata",
-      "bytes": 1072600,
-      "sha256": "294227cc2d1292b0acb28d61d4115c88252b96d466ca90b417cf4cf0c67bf07c"
-    },
-    {
-      "path": "tesseract/tir.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/tir.traineddata",
-      "bytes": 378822,
-      "sha256": "73d7430c22a062b061f603a2c1d70c4ea4aa092f7a932a97921926e15b4fdb3d"
-    },
-    {
-      "path": "tesseract/tur.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/tur.traineddata",
-      "bytes": 4550554,
-      "sha256": "7393381111e1152420fc4092cb44eef4237580d21b92bf30d7d221aad192c6b7"
-    },
-    {
-      "path": "tesseract/uig.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/uig.traineddata",
-      "bytes": 2794272,
-      "sha256": "163b360268c39fc69e0c0dc9299c06dfe7a6c51ef8f33766da75022217b69b22"
-    },
-    {
-      "path": "tesseract/ukr.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/ukr.traineddata",
-      "bytes": 3825102,
-      "sha256": "d59e53e2bded32f4445f124b4b00240fcac7e8044c003ab822ccb94f0b3db59b"
-    },
-    {
-      "path": "tesseract/urd.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/urd.traineddata",
-      "bytes": 1398718,
-      "sha256": "62e8250ce2a994106e313a82e26a516a39e2cf159d0ce3c5b5008387fd0d555f"
-    },
-    {
-      "path": "tesseract/uzb.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/uzb.traineddata",
-      "bytes": 6470703,
-      "sha256": "0e39021eefe692906b50d9bd22e580fa57fe43fa35db6846ad8b6369ddc21ea8"
-    },
-    {
-      "path": "tesseract/uzb_cyrl.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/uzb_cyrl.traineddata",
-      "bytes": 1563501,
-      "sha256": "a2fe0b3f0eb4a5e46252470160ad51cc5f3c4c0f390ba67d1911beb0dbe80cc8"
-    },
-    {
-      "path": "tesseract/vie.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/vie.traineddata",
-      "bytes": 531275,
-      "sha256": "79df64caf7bcfb2a27df5042ecb6121e196eada34da774956995747636d5bfa1"
-    },
-    {
-      "path": "tesseract/yid.traineddata",
-      "url": "https://github.com/tesseract-ocr/tessdata_fast/raw/main/yid.traineddata",
-      "bytes": 545606,
-      "sha256": "f9a3d74076460a505dc0c6b59a0f5bd1108c6436d570954223b3695988d1666d"
-    },
-    {
-      "path": "fonts/NotoSansCJKjp-Regular.otf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/OTF/Japanese/NotoSansCJKjp-Regular.otf",
-      "bytes": 16467736,
-      "sha256": "68a3fc98800b2a27b371f2fb79991daf3633bd89309d4ffaa6946fd587f375b5"
-    },
-    {
-      "path": "fonts/NotoSansCJKsc-Regular.otf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Regular.otf",
-      "bytes": 16437364,
-      "sha256": "2c76254f6fc379fddfce0a7e84fb5385bb135d3e399294f6eeb6680d0365b74b"
-    },
-    {
-      "path": "fonts/NotoSansCJKtc-Regular.otf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/OTF/TraditionalChinese/NotoSansCJKtc-Regular.otf",
-      "bytes": 16435884,
-      "sha256": "dce08bd4fd91aa8aa76ed8fea4b694c2dfb8550f67871e326843212ddbeb88b4"
-    },
-    {
-      "path": "fonts/NotoSansCJKkr-Regular.otf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/OTF/Korean/NotoSansCJKkr-Regular.otf",
-      "bytes": 16433112,
-      "sha256": "6bcb2a0703aa137e874fc2dffa85f6c21ba9a67fa329e81b8c801663af7e992a"
-    },
-    {
-      "path": "fonts/NotoNaskhArabic-Regular.ttf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoNaskhArabic/NotoNaskhArabic-Regular.ttf",
-      "bytes": 178388,
-      "sha256": "2f4b88e6ee50fa82c617e2d1d4ba18281cb1c6cd71c3af3ec64970c23995db4b"
-    },
-    {
-      "path": "fonts/NotoSansDevanagari-Regular.ttf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/unhinted/ttf/NotoSansDevanagari/NotoSansDevanagari-Regular.ttf",
-      "bytes": 157068,
-      "sha256": "62484c0da3a4e3cbf62ca98c25c92596f640486e154dfbec8b333a6150bbf985"
-    },
-    {
-      "path": "fonts/NotoSansBengali-Regular.ttf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansBengali/NotoSansBengali-Regular.ttf",
-      "bytes": 200048,
-      "sha256": "6300c5370cd688b0641343de4c786de6d412bb6c578d129dae75e93a0322dcab"
-    },
-    {
-      "path": "fonts/NotoSansGujarati-Regular.ttf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansGujarati/NotoSansGujarati-Regular.ttf",
-      "bytes": 208452,
-      "sha256": "8d5c22d7b729ef2839e6d1fe2cde77b2d083907be3659bca63676baa76e01fd6"
-    },
-    {
-      "path": "fonts/NotoSansKannada-Regular.ttf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansKannada/NotoSansKannada-Regular.ttf",
-      "bytes": 151940,
-      "sha256": "5c804033c57f2c2844b1cd425f45b9a78d81d2f71bf358351b24258ebe168aea"
-    },
-    {
-      "path": "fonts/NotoSansMalayalam-Regular.ttf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansMalayalam/NotoSansMalayalam-Regular.ttf",
-      "bytes": 111724,
-      "sha256": "42eb462ff13e820ebbeaaec4e7b426bd1de145d02cef8b634f5a3efd376b513c"
-    },
-    {
-      "path": "fonts/NotoSansOriya-Regular.ttf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansOriya/NotoSansOriya-Regular.ttf",
-      "bytes": 95776,
-      "sha256": "b8d8bd784b9d09c0668233437359913c93a3a83bf37d92ecde859e2bc728a0e0"
-    },
-    {
-      "path": "fonts/NotoSansGurmukhi-Regular.ttf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansGurmukhi/NotoSansGurmukhi-Regular.ttf",
-      "bytes": 53000,
-      "sha256": "bbde4d85fdfb998eff6921cb2c7a9a7924a1c95560a6aa9a06172530e4f596da"
-    },
-    {
-      "path": "fonts/NotoSansTamil-Regular.ttf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansTamil/NotoSansTamil-Regular.ttf",
-      "bytes": 74248,
-      "sha256": "6532db33b8b264abe3a098a40619feb489b5ddf5ab1d2b46e72b51eeb548001b"
-    },
-    {
-      "path": "fonts/NotoSansTelugu-Regular.ttf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansTelugu/NotoSansTelugu-Regular.ttf",
-      "bytes": 197228,
-      "sha256": "2c05072e8018a9be1cb0582953d9edf9a0cf129cdfb74e611de763b09c411f7f"
-    },
-    {
-      "path": "fonts/NotoSansSinhala-Regular.ttf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansSinhala/NotoSansSinhala-Regular.ttf",
-      "bytes": 310232,
-      "sha256": "a966549310b2d3046ba25bbeef11985428ff9356fa656fd6118bc90fb82df031"
-    },
-    {
-      "path": "fonts/NotoSansThai-Regular.ttf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansThai/NotoSansThai-Regular.ttf",
-      "bytes": 37752,
-      "sha256": "404ddfb5ed0aaa6b6ec8a85700d682978992062d67da93903967b56cbd9a4acc"
-    },
-    {
-      "path": "fonts/NotoSansKhmer-Regular.ttf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansKhmer/NotoSansKhmer-Regular.ttf",
-      "bytes": 114096,
-      "sha256": "5c1ec068352f1e1fe8e7a3218230360d054e104d377ef40c0423b17c34c3c259"
-    },
-    {
-      "path": "fonts/NotoSansLao-Regular.ttf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansLao/NotoSansLao-Regular.ttf",
-      "bytes": 31340,
-      "sha256": "4a64d40850990992913d4be44b2e87a93d52f76882c1f0c0755edcb12ec57aa2"
-    },
-    {
-      "path": "fonts/NotoSansMyanmar-Regular.ttf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansMyanmar/NotoSansMyanmar-Regular.ttf",
-      "bytes": 195408,
-      "sha256": "9dd2bc76a822a974efce803a4b07302d14d01d5c1fa9e33a258d15a9cb513a7d"
-    },
-    {
-      "path": "fonts/NotoSansHebrew-Regular.ttf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansHebrew/NotoSansHebrew-Regular.ttf",
-      "bytes": 26900,
-      "sha256": "a7fa16fffb27bedb060a0866267c29e9859aeb9c21cc33f5b3aaf6eb062eca85"
-    },
-    {
-      "path": "fonts/NotoSansGeorgian-Regular.ttf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansGeorgian/NotoSansGeorgian-Regular.ttf",
-      "bytes": 53948,
-      "sha256": "b36ab61cbdd820ffd32f957f704f5bf0c53655e820b7a64001091058919a11a6"
-    },
-    {
-      "path": "fonts/NotoSansEthiopic-Regular.ttf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansEthiopic/NotoSansEthiopic-Regular.ttf",
-      "bytes": 344328,
-      "sha256": "e3a81ca66eb6d6b1a50a287c1dba18195541f69e0986f8b49a42658aa592ff0d"
-    },
-    {
-      "path": "fonts/NotoSerifTibetan-Regular.ttf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSerifTibetan/NotoSerifTibetan-Regular.ttf",
-      "bytes": 613292,
-      "sha256": "3dd3876c670008cef5e29a79392fc8874d9bb9e349fc54755b2861c050c0fd7c"
-    },
-    {
-      "path": "fonts/NotoSansCherokee-Regular.ttf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansCherokee/NotoSansCherokee-Regular.ttf",
-      "bytes": 94600,
-      "sha256": "b1fc4e947c0647dc79e88a6583c3b50d81d533732cd9be821d4d4999def842cd"
-    },
-    {
-      "path": "fonts/NotoSansArmenian-Regular.ttf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansArmenian/NotoSansArmenian-Regular.ttf",
-      "bytes": 30876,
-      "sha256": "c3332abfe298018517d7f5b687a9c0f5c92f163ea9258f23934eaa7a9378f40e"
-    },
-    {
-      "path": "fonts/NotoSansSyriac-Regular.ttf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansSyriac/NotoSansSyriac-Regular.ttf",
-      "bytes": 233516,
-      "sha256": "7e05622602dd5333006807f61b30452a94cca0a0791047a120edff00cf189082"
-    },
-    {
-      "path": "fonts/NotoSans-Regular.ttf",
-      "url": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSans/NotoSans-Regular.ttf",
-      "bytes": 569208,
-      "sha256": "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5"
-    },
-    {
-      "path": "tesseract/kur.traineddata.gz",
-      "url": "https://cdn.jsdelivr.net/npm/@tesseract.js-data/kur/4.0.0/kur.traineddata.gz",
-      "bytes": 769648,
-      "sha256": "f74622a5a86598bc535f5eef218e756806e598bd84b01104afe84a107e38e99a"
-    },
-    {
-      "path": "tesseract/frk.traineddata.gz",
-      "url": "https://cdn.jsdelivr.net/npm/@tesseract.js-data/frk/4.0.0_best_int/frk.traineddata.gz",
-      "bytes": 3362304,
-      "sha256": "22186f9eae55cdc13846ea4d586f24f9fe64765c5400c41c2c46e55a8bb735be",
-      "decodedBytes": 6423092
-    }
-  ],
-  "generatedAt": "2026-11-21T04:25:25.260Z",
-  "inventory": [
-    {
-      "path": "compress-models.mjs",
-      "bytes": 516,
-      "sha256": "ce8be0eee41afbade1305a57be1242abd7243cd1e039daa99b0b9b6e3350ee76"
-    },
+  "tool": "MyPDF",
+  "ocrEngine": "Tesseract.js 7",
+  "models": 102,
+  "files": [
     {
       "path": "fonts/LICENSE-NOTO-FONTS",
       "bytes": 4377,
@@ -934,142 +16,164 @@
     {
       "path": "fonts/NotoNaskhArabic-Regular.ttf",
       "bytes": 178388,
-      "sha256": "2f4b88e6ee50fa82c617e2d1d4ba18281cb1c6cd71c3af3ec64970c23995db4b"
+      "sha256": "2f4b88e6ee50fa82c617e2d1d4ba18281cb1c6cd71c3af3ec64970c23995db4b",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoNaskhArabic/NotoNaskhArabic-Regular.ttf"
     },
     {
       "path": "fonts/NotoSans-Regular.ttf",
       "bytes": 569208,
-      "sha256": "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5"
+      "sha256": "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSans/NotoSans-Regular.ttf"
     },
     {
       "path": "fonts/NotoSansArmenian-Regular.ttf",
       "bytes": 30876,
-      "sha256": "c3332abfe298018517d7f5b687a9c0f5c92f163ea9258f23934eaa7a9378f40e"
+      "sha256": "c3332abfe298018517d7f5b687a9c0f5c92f163ea9258f23934eaa7a9378f40e",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansArmenian/NotoSansArmenian-Regular.ttf"
     },
     {
       "path": "fonts/NotoSansBengali-Regular.ttf",
       "bytes": 200048,
-      "sha256": "6300c5370cd688b0641343de4c786de6d412bb6c578d129dae75e93a0322dcab"
+      "sha256": "6300c5370cd688b0641343de4c786de6d412bb6c578d129dae75e93a0322dcab",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansBengali/NotoSansBengali-Regular.ttf"
     },
     {
       "path": "fonts/NotoSansCherokee-Regular.ttf",
       "bytes": 94600,
-      "sha256": "b1fc4e947c0647dc79e88a6583c3b50d81d533732cd9be821d4d4999def842cd"
+      "sha256": "b1fc4e947c0647dc79e88a6583c3b50d81d533732cd9be821d4d4999def842cd",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansCherokee/NotoSansCherokee-Regular.ttf"
     },
     {
       "path": "fonts/NotoSansCJKjp-Regular.otf",
       "bytes": 16467736,
-      "sha256": "68a3fc98800b2a27b371f2fb79991daf3633bd89309d4ffaa6946fd587f375b5"
+      "sha256": "68a3fc98800b2a27b371f2fb79991daf3633bd89309d4ffaa6946fd587f375b5",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/OTF/Japanese/NotoSansCJKjp-Regular.otf"
     },
     {
       "path": "fonts/NotoSansCJKkr-Regular.otf",
       "bytes": 16433112,
-      "sha256": "6bcb2a0703aa137e874fc2dffa85f6c21ba9a67fa329e81b8c801663af7e992a"
+      "sha256": "6bcb2a0703aa137e874fc2dffa85f6c21ba9a67fa329e81b8c801663af7e992a",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/OTF/Korean/NotoSansCJKkr-Regular.otf"
     },
     {
       "path": "fonts/NotoSansCJKsc-Regular.otf",
       "bytes": 16437364,
-      "sha256": "2c76254f6fc379fddfce0a7e84fb5385bb135d3e399294f6eeb6680d0365b74b"
+      "sha256": "2c76254f6fc379fddfce0a7e84fb5385bb135d3e399294f6eeb6680d0365b74b",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Regular.otf"
     },
     {
       "path": "fonts/NotoSansCJKtc-Regular.otf",
       "bytes": 16435884,
-      "sha256": "dce08bd4fd91aa8aa76ed8fea4b694c2dfb8550f67871e326843212ddbeb88b4"
+      "sha256": "dce08bd4fd91aa8aa76ed8fea4b694c2dfb8550f67871e326843212ddbeb88b4",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/OTF/TraditionalChinese/NotoSansCJKtc-Regular.otf"
     },
     {
       "path": "fonts/NotoSansDevanagari-Regular.ttf",
       "bytes": 157068,
-      "sha256": "62484c0da3a4e3cbf62ca98c25c92596f640486e154dfbec8b333a6150bbf985"
+      "sha256": "62484c0da3a4e3cbf62ca98c25c92596f640486e154dfbec8b333a6150bbf985",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/unhinted/ttf/NotoSansDevanagari/NotoSansDevanagari-Regular.ttf"
     },
     {
       "path": "fonts/NotoSansEthiopic-Regular.ttf",
       "bytes": 344328,
-      "sha256": "e3a81ca66eb6d6b1a50a287c1dba18195541f69e0986f8b49a42658aa592ff0d"
+      "sha256": "e3a81ca66eb6d6b1a50a287c1dba18195541f69e0986f8b49a42658aa592ff0d",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansEthiopic/NotoSansEthiopic-Regular.ttf"
     },
     {
       "path": "fonts/NotoSansGeorgian-Regular.ttf",
       "bytes": 53948,
-      "sha256": "b36ab61cbdd820ffd32f957f704f5bf0c53655e820b7a64001091058919a11a6"
+      "sha256": "b36ab61cbdd820ffd32f957f704f5bf0c53655e820b7a64001091058919a11a6",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansGeorgian/NotoSansGeorgian-Regular.ttf"
     },
     {
       "path": "fonts/NotoSansGujarati-Regular.ttf",
       "bytes": 208452,
-      "sha256": "8d5c22d7b729ef2839e6d1fe2cde77b2d083907be3659bca63676baa76e01fd6"
+      "sha256": "8d5c22d7b729ef2839e6d1fe2cde77b2d083907be3659bca63676baa76e01fd6",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansGujarati/NotoSansGujarati-Regular.ttf"
     },
     {
       "path": "fonts/NotoSansGurmukhi-Regular.ttf",
       "bytes": 53000,
-      "sha256": "bbde4d85fdfb998eff6921cb2c7a9a7924a1c95560a6aa9a06172530e4f596da"
+      "sha256": "bbde4d85fdfb998eff6921cb2c7a9a7924a1c95560a6aa9a06172530e4f596da",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansGurmukhi/NotoSansGurmukhi-Regular.ttf"
     },
     {
       "path": "fonts/NotoSansHebrew-Regular.ttf",
       "bytes": 26900,
-      "sha256": "a7fa16fffb27bedb060a0866267c29e9859aeb9c21cc33f5b3aaf6eb062eca85"
+      "sha256": "a7fa16fffb27bedb060a0866267c29e9859aeb9c21cc33f5b3aaf6eb062eca85",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansHebrew/NotoSansHebrew-Regular.ttf"
     },
     {
       "path": "fonts/NotoSansKannada-Regular.ttf",
       "bytes": 151940,
-      "sha256": "5c804033c57f2c2844b1cd425f45b9a78d81d2f71bf358351b24258ebe168aea"
+      "sha256": "5c804033c57f2c2844b1cd425f45b9a78d81d2f71bf358351b24258ebe168aea",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansKannada/NotoSansKannada-Regular.ttf"
     },
     {
       "path": "fonts/NotoSansKhmer-Regular.ttf",
       "bytes": 114096,
-      "sha256": "5c1ec068352f1e1fe8e7a3218230360d054e104d377ef40c0423b17c34c3c259"
+      "sha256": "5c1ec068352f1e1fe8e7a3218230360d054e104d377ef40c0423b17c34c3c259",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansKhmer/NotoSansKhmer-Regular.ttf"
     },
     {
       "path": "fonts/NotoSansLao-Regular.ttf",
       "bytes": 31340,
-      "sha256": "4a64d40850990992913d4be44b2e87a93d52f76882c1f0c0755edcb12ec57aa2"
+      "sha256": "4a64d40850990992913d4be44b2e87a93d52f76882c1f0c0755edcb12ec57aa2",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansLao/NotoSansLao-Regular.ttf"
     },
     {
       "path": "fonts/NotoSansMalayalam-Regular.ttf",
       "bytes": 111724,
-      "sha256": "42eb462ff13e820ebbeaaec4e7b426bd1de145d02cef8b634f5a3efd376b513c"
+      "sha256": "42eb462ff13e820ebbeaaec4e7b426bd1de145d02cef8b634f5a3efd376b513c",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansMalayalam/NotoSansMalayalam-Regular.ttf"
     },
     {
       "path": "fonts/NotoSansMyanmar-Regular.ttf",
       "bytes": 195408,
-      "sha256": "9dd2bc76a822a974efce803a4b07302d14d01d5c1fa9e33a258d15a9cb513a7d"
+      "sha256": "9dd2bc76a822a974efce803a4b07302d14d01d5c1fa9e33a258d15a9cb513a7d",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansMyanmar/NotoSansMyanmar-Regular.ttf"
     },
     {
       "path": "fonts/NotoSansOriya-Regular.ttf",
       "bytes": 95776,
-      "sha256": "b8d8bd784b9d09c0668233437359913c93a3a83bf37d92ecde859e2bc728a0e0"
+      "sha256": "b8d8bd784b9d09c0668233437359913c93a3a83bf37d92ecde859e2bc728a0e0",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansOriya/NotoSansOriya-Regular.ttf"
     },
     {
       "path": "fonts/NotoSansSinhala-Regular.ttf",
       "bytes": 310232,
-      "sha256": "a966549310b2d3046ba25bbeef11985428ff9356fa656fd6118bc90fb82df031"
+      "sha256": "a966549310b2d3046ba25bbeef11985428ff9356fa656fd6118bc90fb82df031",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansSinhala/NotoSansSinhala-Regular.ttf"
     },
     {
       "path": "fonts/NotoSansSyriac-Regular.ttf",
       "bytes": 233516,
-      "sha256": "7e05622602dd5333006807f61b30452a94cca0a0791047a120edff00cf189082"
+      "sha256": "7e05622602dd5333006807f61b30452a94cca0a0791047a120edff00cf189082",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansSyriac/NotoSansSyriac-Regular.ttf"
     },
     {
       "path": "fonts/NotoSansTamil-Regular.ttf",
       "bytes": 74248,
-      "sha256": "6532db33b8b264abe3a098a40619feb489b5ddf5ab1d2b46e72b51eeb548001b"
+      "sha256": "6532db33b8b264abe3a098a40619feb489b5ddf5ab1d2b46e72b51eeb548001b",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansTamil/NotoSansTamil-Regular.ttf"
     },
     {
       "path": "fonts/NotoSansTelugu-Regular.ttf",
       "bytes": 197228,
-      "sha256": "2c05072e8018a9be1cb0582953d9edf9a0cf129cdfb74e611de763b09c411f7f"
+      "sha256": "2c05072e8018a9be1cb0582953d9edf9a0cf129cdfb74e611de763b09c411f7f",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansTelugu/NotoSansTelugu-Regular.ttf"
     },
     {
       "path": "fonts/NotoSansThai-Regular.ttf",
       "bytes": 37752,
-      "sha256": "404ddfb5ed0aaa6b6ec8a85700d682978992062d67da93903967b56cbd9a4acc"
+      "sha256": "404ddfb5ed0aaa6b6ec8a85700d682978992062d67da93903967b56cbd9a4acc",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSansThai/NotoSansThai-Regular.ttf"
     },
     {
       "path": "fonts/NotoSerifTibetan-Regular.ttf",
       "bytes": 613292,
-      "sha256": "3dd3876c670008cef5e29a79392fc8874d9bb9e349fc54755b2861c050c0fd7c"
-    },
-    {
-      "path": "manifest.json",
-      "bytes": 63243,
-      "sha256": "ff89d1259603313825e9fa1d44ae85fd98d9d78f523c06055169db83c11856b6"
+      "sha256": "3dd3876c670008cef5e29a79392fc8874d9bb9e349fc54755b2861c050c0fd7c",
+      "source": "https://rawcdn.githack.com/googlefonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSerifTibetan/NotoSerifTibetan-Regular.ttf"
     },
     {
       "path": "tesseract/afr.traineddata.gz",
@@ -1224,7 +328,8 @@
     {
       "path": "tesseract/frk.traineddata.gz",
       "bytes": 3362304,
-      "sha256": "22186f9eae55cdc13846ea4d586f24f9fe64765c5400c41c2c46e55a8bb735be"
+      "sha256": "22186f9eae55cdc13846ea4d586f24f9fe64765c5400c41c2c46e55a8bb735be",
+      "source": "https://cdn.jsdelivr.net/npm/@tesseract.js-data/frk/4.0.0_best_int/frk.traineddata.gz"
     },
     {
       "path": "tesseract/frm.traineddata.gz",
@@ -1349,7 +454,8 @@
     {
       "path": "tesseract/kur.traineddata.gz",
       "bytes": 769648,
-      "sha256": "f74622a5a86598bc535f5eef218e756806e598bd84b01104afe84a107e38e99a"
+      "sha256": "f74622a5a86598bc535f5eef218e756806e598bd84b01104afe84a107e38e99a",
+      "source": "https://cdn.jsdelivr.net/npm/@tesseract.js-data/kur/4.0.0/kur.traineddata.gz"
     },
     {
       "path": "tesseract/lao.traineddata.gz",
@@ -1365,6 +471,16 @@
       "path": "tesseract/lav.traineddata.gz",
       "bytes": 1202677,
       "sha256": "1c26432f2fc77955e0e026f6d73638f9bbbfe530714cfe79d8c95871b2d73a7a"
+    },
+    {
+      "path": "tesseract/LICENSE-TESSERACT",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "tesseract/LICENSE-TESSERACT-CORE",
+      "bytes": 11358,
+      "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08"
     },
     {
       "path": "tesseract/lit.traineddata.gz",
@@ -1522,6 +638,68 @@
       "sha256": "51379aaa2c2154c078358945f91583dab578b0c286e90cd8453e7eb0c124432b"
     },
     {
+      "path": "tesseract/tesseract-core-lstm.wasm",
+      "bytes": 2855361,
+      "sha256": "66b17df6e20c5329a17ffa9c202a47eaa3e32500b253d4c7f38e7f2bc01457c3"
+    },
+    {
+      "path": "tesseract/tesseract-core-lstm.wasm.js",
+      "bytes": 3896484,
+      "sha256": "eef5f8b2f8e20e150680b20adaec4a60babafee3adbe8a94583c81fee46e8680"
+    },
+    {
+      "path": "tesseract/tesseract-core-relaxedsimd-lstm.wasm",
+      "bytes": 2862266,
+      "sha256": "7985c92d4c64e7267d24cadffe1b2a1da6bf8aa55fdcaf953fe94fe122a24545"
+    },
+    {
+      "path": "tesseract/tesseract-core-relaxedsimd-lstm.wasm.js",
+      "bytes": 3905767,
+      "sha256": "861a536cf9ef8e63cb644d57bab39c388f37f7d6b6f60024b741c5f6b39a59b3"
+    },
+    {
+      "path": "tesseract/tesseract-core-relaxedsimd.wasm",
+      "bytes": 3456075,
+      "sha256": "45f8c9b516df326b6ae6b493ed3a6289df5cbd10490e7b6ff8bf5b12ea42d1da"
+    },
+    {
+      "path": "tesseract/tesseract-core-relaxedsimd.wasm.js",
+      "bytes": 4697227,
+      "sha256": "843074aa5bad1cc6421b74a86201768ced9f244795e4d81435435a61a40ce535"
+    },
+    {
+      "path": "tesseract/tesseract-core-simd-lstm.wasm",
+      "bytes": 2857601,
+      "sha256": "34e8d50cac216427d86bf397d610fdd9f49492539bbcdfbfccc4eda20c810bea",
+      "source": "https://cdn.jsdelivr.net/npm/tesseract.js-core@7.0.0/tesseract-core-simd-lstm.wasm"
+    },
+    {
+      "path": "tesseract/tesseract-core-simd-lstm.wasm.js",
+      "bytes": 3899472,
+      "sha256": "c58b46a4c796c0b8afccf77591d5b875b6896b45d402bbce8caa6f5362447b38",
+      "source": "https://cdn.jsdelivr.net/npm/tesseract.js-core@7.0.0/tesseract-core-simd-lstm.wasm.js"
+    },
+    {
+      "path": "tesseract/tesseract-core-simd.wasm",
+      "bytes": 3451410,
+      "sha256": "7d237a13edfeb0fa2f104744fccde0a00e0c076c3e23b7a8fc7af75ec9af2c3e"
+    },
+    {
+      "path": "tesseract/tesseract-core-simd.wasm.js",
+      "bytes": 4690932,
+      "sha256": "6b61ef4e911b5cf57e656bbfe983d6e2b3711a02dd164154ddda064566e8e09d"
+    },
+    {
+      "path": "tesseract/tesseract-core.wasm",
+      "bytes": 3449168,
+      "sha256": "c7f5ace62ac0ad065e71e9c6725f1d7cdf82e7eda8fba532cbb9563964da7098"
+    },
+    {
+      "path": "tesseract/tesseract-core.wasm.js",
+      "bytes": 4687944,
+      "sha256": "0bc6ce3e5fbbd0cd89706cf2fd70960e3372f4f01ee24265b26990808aaeb286"
+    },
+    {
       "path": "tesseract/tgk.traineddata.gz",
       "bytes": 1151955,
       "sha256": "28906e65ee509767b9de0341fe62a734960a55aefed34268acd84c6127f9d7d9"
@@ -1577,96 +755,21 @@
       "sha256": "4a704daad72203ca8265a69a4b67546f8daae8b67fc7a8a6af34e0b43f1e0047"
     },
     {
-      "path": "tesseract/yid.traineddata.gz",
-      "bytes": 360923,
-      "sha256": "38259ff4bf56225d95161f2e066d5aaa9be67b7a53756808cfdba47b7c2bc77a"
-    },
-    {
-      "path": "tesseract/LICENSE-TESSERACT",
-      "bytes": 11358,
-      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
-    },
-    {
-      "path": "tesseract/LICENSE-TESSERACT-CORE",
-      "bytes": 11358,
-      "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08"
-    },
-    {
-      "path": "tesseract/tesseract-core-lstm.wasm",
-      "bytes": 2855361,
-      "sha256": "66b17df6e20c5329a17ffa9c202a47eaa3e32500b253d4c7f38e7f2bc01457c3"
-    },
-    {
-      "path": "tesseract/tesseract-core-lstm.wasm.js",
-      "bytes": 3896484,
-      "sha256": "eef5f8b2f8e20e150680b20adaec4a60babafee3adbe8a94583c81fee46e8680"
-    },
-    {
-      "path": "tesseract/tesseract-core-relaxedsimd-lstm.wasm",
-      "bytes": 2862266,
-      "sha256": "7985c92d4c64e7267d24cadffe1b2a1da6bf8aa55fdcaf953fe94fe122a24545"
-    },
-    {
-      "path": "tesseract/tesseract-core-relaxedsimd-lstm.wasm.js",
-      "bytes": 3905767,
-      "sha256": "861a536cf9ef8e63cb644d57bab39c388f37f7d6b6f60024b741c5f6b39a59b3"
-    },
-    {
-      "path": "tesseract/tesseract-core-relaxedsimd.wasm",
-      "bytes": 3456075,
-      "sha256": "45f8c9b516df326b6ae6b493ed3a6289df5cbd10490e7b6ff8bf5b12ea42d1da"
-    },
-    {
-      "path": "tesseract/tesseract-core-relaxedsimd.wasm.js",
-      "bytes": 4697227,
-      "sha256": "843074aa5bad1cc6421b74a86201768ced9f244795e4d81435435a61a40ce535"
-    },
-    {
-      "path": "tesseract/tesseract-core-simd-lstm.wasm",
-      "bytes": 2857601,
-      "sha256": "34e8d50cac216427d86bf397d610fdd9f49492539bbcdfbfccc4eda20c810bea"
-    },
-    {
-      "path": "tesseract/tesseract-core-simd-lstm.wasm.js",
-      "bytes": 3899472,
-      "sha256": "c58b46a4c796c0b8afccf77591d5b875b6896b45d402bbce8caa6f5362447b38"
-    },
-    {
-      "path": "tesseract/tesseract-core-simd.wasm",
-      "bytes": 3451410,
-      "sha256": "7d237a13edfeb0fa2f104744fccde0a00e0c076c3e23b7a8fc7af75ec9af2c3e"
-    },
-    {
-      "path": "tesseract/tesseract-core-simd.wasm.js",
-      "bytes": 4690932,
-      "sha256": "6b61ef4e911b5cf57e656bbfe983d6e2b3711a02dd164154ddda064566e8e09d"
-    },
-    {
-      "path": "tesseract/tesseract-core.wasm",
-      "bytes": 3449168,
-      "sha256": "c7f5ace62ac0ad065e71e9c6725f1d7cdf82e7eda8fba532cbb9563964da7098"
-    },
-    {
-      "path": "tesseract/tesseract-core.wasm.js",
-      "bytes": 4687944,
-      "sha256": "0bc6ce3e5fbbd0cd89706cf2fd70960e3372f4f01ee24265b26990808aaeb286"
-    },
-    {
       "path": "tesseract/worker.min.js",
       "bytes": 111307,
-      "sha256": "576b7df7e3393e137e51849357c9adb53fe7ac1bb69bfa06cf3d61520f182c6d"
+      "sha256": "576b7df7e3393e137e51849357c9adb53fe7ac1bb69bfa06cf3d61520f182c6d",
+      "source": "https://cdn.jsdelivr.net/npm/tesseract.js@7.0.0/dist/worker.min.js"
     },
     {
       "path": "tesseract/worker.min.js.LICENSE.txt",
       "bytes": 466,
-      "sha256": "45f54171aeaa1d10c0c1a66f374b7bba1f02472b1487fbe892eec04f840002ac"
+      "sha256": "45f54171aeaa1d10c0c1a66f374b7bba1f02472b1487fbe892eec04f840002ac",
+      "source": "https://cdn.jsdelivr.net/npm/tesseract.js@7.0.0/dist/worker.min.js.LICENSE.txt"
     },
     {
-      "path": "verify-models.mjs",
-      "bytes": 628,
-      "sha256": "9171acd2b8847bad6ad053bb34dfb476759d3812621d6e31c4afba1bebc4e550"
+      "path": "tesseract/yid.traineddata.gz",
+      "bytes": 360923,
+      "sha256": "38259ff4bf56225d95161f2e066d5aaa9be67b7a53756808cfdba47b7c2bc77a"
     }
-  ],
-  "totalBytes": 263884875,
-  "maxFileBytes": 16467736
+  ]
 }
