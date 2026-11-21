@@ -10,35 +10,36 @@ export async function applyTheme(output, base) {
   await writeFile(join(output, 'assets', asset), css);
   const link = '<link rel="stylesheet" media="screen" href="' + base + 'assets/' + asset + '" data-mypdf-theme>';
   const shared = /<link\b[^>]*\bhref=["'][^"']*assets\/style-[^"']+\.css["'][^>]*>/i;
-  const englishAndLocales = [''];
-  for (const entry of await readdir(output, { withFileTypes: true })) {
-    if (entry.isDirectory() && /^[a-z]{2}(?:-[A-Za-z]+)?$/.test(entry.name)) englishAndLocales.push(entry.name);
-  }
-  async function attach(file, html, tag) {
-    const result = html.replace('</head>', tag + '</head>');
-    if (result === html || result.replace(tag, '') !== html || html.includes('data-mypdf-theme')) {
-      throw new Error('Unexpected document head in ' + file);
-    }
-    await writeFile(file, result);
-  }
-  let total = 0;
-  for (const locale of englishAndLocales) {
-    const folder = join(output, locale);
-    const covered = new Set();
-    for (const name of await readdir(folder)) {
-      if (!name.endsWith('.html')) continue;
-      const file = join(folder, name);
+  const viewers = new Set(['pdfjs-viewer/form-viewer.html', 'pdfjs-annotation-viewer/web/viewer.html']);
+  const themed = new Set();
+  async function visit(relative = '') {
+    const folder = join(output, relative);
+    for (const entry of await readdir(folder, { withFileTypes: true })) {
+      const name = relative ? relative + '/' + entry.name : entry.name;
+      if (entry.isDirectory()) {
+        await visit(name);
+        continue;
+      }
+      if (!entry.isFile() || !name.endsWith('.html')) continue;
+      const file = join(output, name);
       const html = await readFile(file, 'utf8');
-      if (!shared.test(html)) continue;
-      await attach(file, html, link);
-      covered.add(name);
+      if (!viewers.has(name) && !shared.test(html)) continue;
+      const tag = viewers.has(name) ? link.replace('data-mypdf-theme>', 'data-mypdf-theme data-mypdf-viewer>') : link;
+      const result = html.replace('</head>', tag + '</head>');
+      if (result === html || result.replace(tag, '') !== html || html.includes('data-mypdf-theme')) {
+        throw new Error('Unexpected document head in ' + name);
+      }
+      await writeFile(file, result);
+      themed.add(name);
     }
-    if (!covered.has('index.html') || !covered.has('merge-pdf.html')) throw new Error('Incomplete theme coverage in ' + folder);
-    total += covered.size;
   }
-  for (const nested of ['pdfjs-viewer/form-viewer.html', 'pdfjs-annotation-viewer/web/viewer.html']) {
-    const file = join(output, nested);
-    await attach(file, await readFile(file, 'utf8'), link.replace('data-mypdf-theme>', 'data-mypdf-theme data-mypdf-viewer>'));
+  await visit();
+  const editions = [''];
+  for (const entry of await readdir(output, { withFileTypes: true })) {
+    if (entry.isDirectory() && /^[a-z]{2}(?:-[A-Za-z]+)?$/.test(entry.name)) editions.push(entry.name + '/');
   }
-  console.log('Theme linked in', total, 'application pages across', englishAndLocales.length, 'editions:', asset);
+  for (const required of [...viewers, ...editions.flatMap(prefix => ['index.html','merge-pdf.html'].map(page => prefix + page))]) {
+    if (!themed.has(required)) throw new Error('Missing theme in ' + required);
+  }
+  console.log('Theme linked in', themed.size, 'HTML documents across', editions.length, 'language editions:', asset);
 }
