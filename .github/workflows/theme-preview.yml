@@ -1,0 +1,51 @@
+name: Review the MyPDF theme
+on:
+  push:
+    branches: [asq-visual-theme]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: build-config
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - uses: actions/download-artifact@v4
+        with:
+          name: mypdf-cloudflare
+          path: original
+          run-id: 44939653923
+          github-token: ${{ github.token }}
+      - name: Apply the theme to the released Cloudflare build
+        run: node --input-type=module -e "import {applyTheme} from './build-config/apply-theme.mjs'; await applyTheme('original','/');"
+      - name: Package representative pages for browser review
+        shell: python
+        run: |
+          from pathlib import Path
+          from shutil import copy2, copytree
+          src, dst = Path('original'), Path('preview')
+          dst.mkdir()
+          pages = ['index.html','merge-pdf.html','organize-pdf.html','edit-pdf-text.html','edit-pdf.html','pdf-workflow.html','word-to-pdf.html']
+          for lang in ['', 'zh', 'zh-TW']:
+              for page in pages:
+                  (dst/lang).mkdir(exist_ok=True)
+                  if (src/lang/page).is_file(): copy2(src/lang/page, dst/lang/page)
+          for name in ['assets','images','workers','wasm/coherentpdf','editor-resources','locales/en','locales/zh','locales/zh-TW']:
+              if (src/name).is_dir(): copytree(src/name,dst/name,dirs_exist_ok=True)
+          for f in src.iterdir():
+              if f.is_file() and (f.suffix in ['.js','.svg','.ico','.png','.json'] or f.name=='_headers'): copy2(f,dst/f.name)
+          n = sum(f.is_file() for f in dst.rglob('*'))
+          print(f'{n} preview files')
+          if n > 1000: raise ValueError('Preview exceeds dashboard limit')
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mypdf-theme-review
+          path: preview/
+          include-hidden-files: true
+          retention-days: 1
