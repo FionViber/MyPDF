@@ -1,0 +1,58 @@
+name: Publish MyPDF languages
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-mypdf.yml'
+      - 'build-config/**'
+permissions:
+  contents: read
+concurrency:
+  group: mypdf-pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Restore pinned BentoPDF source
+        run: |
+          git init "$RUNNER_TEMP/bento"
+          git -C "$RUNNER_TEMP/bento" fetch --depth 1 https://github.com/alam00000/bentopdf.git f1d685bcf607c904f0c6fb385e8048974a2bc8b0
+          git -C "$RUNNER_TEMP/bento" checkout --detach FETCH_HEAD
+          git -C "$RUNNER_TEMP/bento" apply --binary "$GITHUB_WORKSPACE/build-config/source-modifications.patch"
+          for file in i18n.ts language-switcher.ts; do cp "build-config/$file" "$RUNNER_TEMP/bento/src/js/i18n/$file"; done
+          cp build-config/language-redirect.js "$RUNNER_TEMP/bento/src/js/"
+          cp build-config/simple-mode-footer.ts "$RUNNER_TEMP/bento/src/js/utils/"
+          cp build-config/navbar-simple.html "$RUNNER_TEMP/bento/src/partials/"
+          cp build-config/simple-index.html "$RUNNER_TEMP/bento/"
+          cp build-config/generate-i18n-pages.mjs "$RUNNER_TEMP/bento/scripts/"
+      - name: Install pinned dependencies and build the static site
+        run: |
+          npm ci --prefix "$RUNNER_TEMP/bento" --no-audit --no-fund
+          node build-config/complete-build.mjs "$RUNNER_TEMP/bento" github "$RUNNER_TEMP/site"
+          test -s "$RUNNER_TEMP/site/zh/merge-pdf.html"
+          test -s "$RUNNER_TEMP/site/zh-TW/merge-pdf.html"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ runner.temp }}/site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.publication.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages
+        id: publication
+        uses: actions/deploy-pages@v4
